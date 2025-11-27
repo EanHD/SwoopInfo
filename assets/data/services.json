@@ -1,0 +1,126 @@
+[
+  {
+    "id": "maintenance",
+    "title": "Maintenance & Fluids",
+    "icon": "oil_barrel",
+    "subcategories": [
+      { "id": "oil_change", "title": "Engine Oil & Filter" },
+      { "id": "trans_fluid", "title": "Transmission Fluid" },
+      { "id": "coolant", "title": "Coolant / Antifreeze" },
+      { "id": "brake_fluid", "title": "Brake Fluid" },
+      { "id": "ps_fluid", "title": "Power Steering Fluid" },
+      { "id": "diff_fluid", "title": "Differential Fluid" },
+      { "id": "filters", "title": "Air & Cabin Filters" },
+      { "id": "wipers", "title": "Wiper Blades" },
+      { "id": "belts", "title": "Drive Belts" },
+      { "id": "spark_plugs", "title": "Spark Plugs" },
+      { "id": "tire_rotation", "title": "Tire Rotation" }
+    ]
+  },
+  {
+    "id": "brakes",
+    "title": "Brakes & Traction",
+    "icon": "disc_full",
+    "subcategories": [
+      { "id": "pads_rotors_front", "title": "Front Pads & Rotors" },
+      { "id": "pads_rotors_rear", "title": "Rear Pads & Rotors" },
+      { "id": "calipers", "title": "Calipers" },
+      { "id": "master_cylinder", "title": "Master Cylinder" },
+      { "id": "brake_lines", "title": "Brake Lines & Hoses" },
+      { "id": "abs_module", "title": "ABS Module & Sensors" },
+      { "id": "parking_brake", "title": "Parking Brake" }
+    ]
+  },
+  {
+    "id": "engine",
+    "title": "Engine Mechanical",
+    "icon": "engineering",
+    "subcategories": [
+      { "id": "timing", "title": "Timing Chain / Belt" },
+      { "id": "head_gasket", "title": "Cylinder Head & Gasket" },
+      { "id": "intake", "title": "Intake Manifold" },
+      { "id": "exhaust_manifold", "title": "Exhaust Manifold" },
+      { "id": "valve_cover", "title": "Valve Cover & Gasket" },
+      { "id": "oil_pan", "title": "Oil Pan & Pump" },
+      { "id": "mounts", "title": "Engine Mounts" },
+      { "id": "seals", "title": "Crank & Cam Seals" }
+    ]
+  },
+  {
+    "id": "cooling",
+    "title": "Cooling System",
+    "icon": "thermostat",
+    "subcategories": [
+      { "id": "water_pump", "title": "Water Pump" },
+      { "id": "radiator", "title": "Radiator & Fan" },
+      { "id": "thermostat", "title": "Thermostat" },
+      { "id": "hoses", "title": "Hoses & Pipes" },
+      { "id": "heater_core", "title": "Heater Core" }
+    ]
+  },
+  {
+    "id": "suspension",
+    "title": "Suspension & Steering",
+    "icon": "handyman",
+    "subcategories": [
+      { "id": "shocks_struts", "title": "Shocks & Struts" },
+      { "id": "control_arms", "title": "Control Arms & Ball Joints" },
+      { "id": "tie_rods", "title": "Tie Rods" },
+      { "id": "sway_bar", "title": "Sway Bar Links" },
+      { "id": "wheel_bearings", "title": "Wheel Bearings / Hubs" },
+      { "id": "steering_rack", "title": "Steering Rack / Gear" },
+      { "id": "ps_pump", "title": "Power Steering Pump" }
+    ]
+  },
+  {
+    "id": "electrical",
+    "title": "Electrical & Starting",
+    "icon": "electrical_services",
+    "subcategories": [
+      { "id": "battery", "title": "Battery & Cables" },
+      { "id": "alternator", "title": "Alternator" },
+      { "id": "starter", "title": "Starter Motor" },
+      { "id": "fuses", "title": "Fuses & Relays" },
+      { "id": "lights", "title": "Headlights & Bulbs" },
+      { "id": "switches", "title": "Switches & Sensors" },
+      { "id": "wiring", "title": "Wiring Repair" }
+    ]
+  },
+  {
+    "id": "hvac",
+    "title": "Heating & AC",
+    "icon": "ac_unit",
+    "subcategories": [
+      { "id": "compressor", "title": "A/C Compressor" },
+      { "id": "condenser", "title": "Condenser" },
+      { "id": "evaporator", "title": "Evaporator" },
+      { "id": "blower_motor", "title": "Blower Motor" },
+      { "id": "actuators", "title": "Blend Door Actuators" }
+    ]
+  },
+  {
+    "id": "exhaust",
+    "title": "Exhaust & Emissions",
+    "icon": "air",
+    "subcategories": [
+      { "id": "o2_sensors", "title": "Oxygen Sensors" },
+      { "id": "catalytic_converter", "title": "Catalytic Converter" },
+      { "id": "muffler", "title": "Muffler & Resonator" },
+      { "id": "egr", "title": "EGR Valve" },
+      { "id": "evap", "title": "EVAP System" }
+    ]
+  },
+  {
+    "id": "transmission",
+    "title": "Transmission & Drivetrain",
+    "icon": "settings_suggest",
+    "subcategories": [
+      { "id": "trans_service", "title": "Transmission Service" },
+      { "id": "cv_axles", "title": "CV Axles / Half Shafts" },
+      { "id": "driveshaft", "title": "Driveshaft & U-Joints" },
+      { "id": "clutch", "title": "Clutch & Flywheel" },
+      { "id": "transfer_case", "title": "Transfer Case" },
+      { "id": "differential", "title": "Differential Assembly" }
+    ]
+  }
+]

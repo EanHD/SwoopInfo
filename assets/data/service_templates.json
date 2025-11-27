@@ -1,0 +1,36 @@
+{
+  "default_chunks": [
+    { "type": "overview", "title": "Overview" },
+    { "type": "parts_required", "title": "Parts & Tools" },
+    { "type": "location", "title": "Component Location" },
+    { "type": "removal_steps", "title": "Step-by-Step Guide" },
+    { "type": "specifications", "title": "Torque & Specs" },
+    { "type": "common_problems", "title": "Common Issues" }
+  ],
+  "conditional_chunks": {
+    "wiring_diagram": {
+      "title": "Wiring Diagram",
+      "applies_when_tags_include": ["electrical", "sensor", "actuator", "module", "switch", "relay", "motor"]
+    },
+    "connector_pinout": {
+      "title": "Connector View",
+      "applies_when_tags_include": ["electrical", "sensor", "actuator", "module"]
+    },
+    "relearn_procedure": {
+      "title": "Relearn / Calibration",
+      "applies_when_tags_include": ["electronic_throttle", "tpms", "abs_module", "steering_angle", "battery_sensor"]
+    },
+    "fluid_capacity": {
+      "title": "Fluid Capacity & Type",
+      "applies_when_tags_include": ["fluid", "oil", "coolant", "transmission", "brake_fluid", "differential"]
+    },
+    "inspection_guide": {
+      "title": "Inspection Guide",
+      "applies_when_tags_include": ["suspension", "brakes", "steering", "belts", "hoses"]
+    },
+    "dtc_list": {
+      "title": "Related Codes (DTCs)",
+      "applies_when_tags_include": ["sensor", "module", "emission", "engine_performance"]
+    }
+  }
+}
