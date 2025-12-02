@@ -844,7 +844,7 @@ CRITICAL OUTPUT RULES:
                         consensus_score = float(match.group(1))
                     except (ValueError, IndexError):
                         pass
-                elif "(\d+)%" in pattern:
+                elif r"(\d+)%" in pattern:
                     try:
                         consensus_score = float(match.group(1)) / 100.0
                         consensus_badge = (

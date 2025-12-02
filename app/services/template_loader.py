@@ -76,10 +76,79 @@ class TemplateLoader:
                 self._cache[powertrain] = self._fallback_template.copy()
                 print(f"📋 Using fallback template for: {powertrain}")
         
+        # SERVERLESS FALLBACK: If no templates loaded, use hardcoded minimal template
         if not self._cache:
-            raise RuntimeError("No templates loaded and no fallback available")
+            print("⚠️ No templates found - using hardcoded minimal template for serverless")
+            minimal_template = self._get_hardcoded_minimal_template()
+            for powertrain in self.TEMPLATE_MAP.keys():
+                self._cache[powertrain] = minimal_template.copy()
         
         print(f"✅ Template loader ready: {len(self._cache)} powertrains configured")
+    
+    def _get_hardcoded_minimal_template(self) -> Dict:
+        """Hardcoded minimal template for serverless environments where files aren't available"""
+        return {
+            "template_type": "UNIVERSAL",
+            "template_version": "3.0",
+            "systems": {
+                "engine": {
+                    "label": "Engine",
+                    "icon": "engine",
+                    "children": {
+                        "oil_change": {"label": "Oil Change", "service_type": "oil_change"},
+                        "timing": {"label": "Timing Belt/Chain", "service_type": "timing"},
+                        "cooling": {"label": "Cooling System", "service_type": "cooling"}
+                    }
+                },
+                "brakes": {
+                    "label": "Brakes",
+                    "icon": "brake",
+                    "children": {
+                        "pads_rotors": {"label": "Pads & Rotors", "service_type": "brake_pads"},
+                        "fluid": {"label": "Brake Fluid", "service_type": "brake_fluid"},
+                        "calipers": {"label": "Calipers", "service_type": "calipers"}
+                    }
+                },
+                "suspension": {
+                    "label": "Suspension & Steering",
+                    "icon": "suspension",
+                    "children": {
+                        "shocks_struts": {"label": "Shocks & Struts", "service_type": "shocks"},
+                        "alignment": {"label": "Alignment", "service_type": "alignment"},
+                        "ball_joints": {"label": "Ball Joints", "service_type": "ball_joints"}
+                    }
+                },
+                "electrical": {
+                    "label": "Electrical",
+                    "icon": "electrical",
+                    "children": {
+                        "battery": {"label": "Battery", "service_type": "battery"},
+                        "alternator": {"label": "Alternator", "service_type": "alternator"},
+                        "starter": {"label": "Starter", "service_type": "starter"}
+                    }
+                },
+                "transmission": {
+                    "label": "Transmission",
+                    "icon": "transmission",
+                    "children": {
+                        "fluid": {"label": "Fluid Service", "service_type": "trans_fluid"},
+                        "clutch": {"label": "Clutch", "service_type": "clutch"}
+                    }
+                },
+                "diagnostics": {
+                    "label": "Diagnostics",
+                    "icon": "diagnostic",
+                    "children": {
+                        "check_engine": {"label": "Check Engine Light", "service_type": "cel_diag"},
+                        "performance": {"label": "Performance Issues", "service_type": "performance_diag"}
+                    }
+                }
+            },
+            "_metadata": {
+                "source": "hardcoded_serverless_fallback",
+                "note": "Minimal template for when file templates are unavailable"
+            }
+        }
     
     def _convert_v2_to_v3_structure(self, v2_template: Dict) -> Dict:
         """Convert v2 nav_tree.json to v3 template structure"""
