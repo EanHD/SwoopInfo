@@ -1,17 +1,10 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional
 
 
 class GenerateChunksRequest(BaseModel):
-    year: str
-    make: str
-    model: str
-    engine: str
-    concern: str = Field(..., description="Customer complaint or job description")
-    dtc_codes: Optional[list[str]] = None
-
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "year": "2011",
                 "make": "Ford",
@@ -20,6 +13,14 @@ class GenerateChunksRequest(BaseModel):
                 "concern": "cranks no start, died while driving",
             }
         }
+    )
+
+    year: str
+    make: str
+    model: str
+    engine: str
+    concern: str = Field(..., description="Customer complaint or job description")
+    dtc_codes: Optional[list[str]] = None
 
 
 class GenerateChunksResponse(BaseModel):

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, Literal
 from datetime import datetime
 
@@ -59,6 +59,30 @@ class SourceCitation(BaseModel):
 
 
 class ServiceChunk(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "vehicle_key": "2011_ford_f150_50",
+                "chunk_type": "known_issues",
+                "title": "Common No-Start Issues",
+                "content_html": "<ul><li>Fuel pump driver module failure (TSB 13-6-9)</li></ul>",
+                "content_text": "Fuel pump driver module failure (TSB 13-6-9)",
+                "tags": ["no_start", "fuel_system", "tsb"],
+                "source_cites": [
+                    {
+                        "source_type": "tsb",
+                        "tsb_number": "13-6-9",
+                        "description": "NHTSA TSB for FPDM failures",
+                        "confidence": 0.95,
+                    }
+                ],
+                "verification_status": "verified",
+                "verified": True,
+                "cost_to_generate": 0.00057,
+            }
+        }
+    )
+
     id: Optional[str] = None
     content_id: Optional[str] = None  # Added for One-to-One Architecture
     vehicle_key: str
@@ -123,29 +147,6 @@ class ServiceChunk(BaseModel):
     cost_to_generate: float = 0.0
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "vehicle_key": "2011_ford_f150_50",
-                "chunk_type": "known_issues",
-                "title": "Common No-Start Issues",
-                "content_html": "<ul><li>Fuel pump driver module failure (TSB 13-6-9)</li></ul>",
-                "content_text": "Fuel pump driver module failure (TSB 13-6-9)",
-                "tags": ["no_start", "fuel_system", "tsb"],
-                "source_cites": [
-                    {
-                        "source_type": "tsb",
-                        "tsb_number": "13-6-9",
-                        "description": "NHTSA TSB for FPDM failures",
-                        "confidence": 0.95,
-                    }
-                ],
-                "verification_status": "verified",
-                "verified": True,
-                "cost_to_generate": 0.00057,
-            }
-        }
 
 
 class ChunkGenerationJob(BaseModel):

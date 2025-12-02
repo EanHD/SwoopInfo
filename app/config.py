@@ -1,10 +1,12 @@
-# Pydantic v1 compatibility - BaseSettings is in pydantic directly
-from pydantic import BaseSettings
+# Pydantic v2 - BaseSettings moved to pydantic-settings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 import os
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env", extra="allow")
+
     supabase_url: str = os.getenv("SUPABASE_URL", "")
     supabase_key: str = os.getenv("SUPABASE_KEY", "")
     openrouter_api_key: str = os.getenv("OPENROUTER_API_KEY", "")
@@ -13,10 +15,6 @@ class Settings(BaseSettings):
     vehicledatabases_api_key: str = os.getenv("VEHICLEDATABASES_API_KEY", "")
     brave_api_key: str = os.getenv("BRAVE_API_KEY", "")
     tavily_api_key: str = os.getenv("TAVILY_API_KEY", "")
-
-    class Config:
-        env_file = ".env"
-        extra = "allow"
 
 
 settings = Settings()
