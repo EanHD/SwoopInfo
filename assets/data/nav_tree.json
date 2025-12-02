@@ -1,294 +1,841 @@
 {
-  "name": "Swoop Nav Tree – Mechanic-First v2.0",
+  "name": "Swoop Nav Tree \u2013 Mechanic-First v2.0",
   "description": "Final version. Every leaf is a real job. Ready for production.",
   "version": "2.0",
   "roots": {
     "Quick Reference": {
       "icon": "book",
       "sub": {
-        "Engine Codes & Firing Order": { "tags": ["info_only"] },
-        "Fluid Capacities & Types": { "tags": ["info_only"] },
-        "Torque Specs": { "tags": ["info_only"] },
-        "Belt Routing": { "tags": ["info_only"] },
-        "Recall/TSB Lookup": { "tags": ["info_only"] },
-        "Common PIDs": { "tags": ["info_only"] },
-        "Global Wiring Index": { "tags": ["info_only"] }
+        "Engine Codes & Firing Order": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Fluid Capacities & Types": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Torque Specs": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Belt Routing": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Recall/TSB Lookup": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Common PIDs": {
+          "tags": [
+            "info_only"
+          ]
+        },
+        "Global Wiring Index": {
+          "tags": [
+            "info_only"
+          ]
+        }
       }
     },
-
     "Engine": {
       "icon": "cogs",
       "sub": {
-        "Overview & Specs": ["Engine Code Breakdown", "Firing Order", "Serpentine Belt Routing Diagram"],
+        "Overview & Specs": [
+          "Engine Code Breakdown",
+          "Firing Order",
+          "Serpentine Belt Routing Diagram"
+        ],
         "Engine Assembly R&R": {
-          "Long Block / Short Block Replacement": { "tags": ["assembly_rr"] },
-          "Complete Engine R&R": { "tags": ["assembly_rr", "relearn"] }
+          "Long Block / Short Block Replacement": {
+            "tags": [
+              "assembly_rr"
+            ]
+          },
+          "Complete Engine R&R": {
+            "tags": [
+              "assembly_rr",
+              "relearn"
+            ]
+          }
         },
         "Mechanical": {
           "Timing Components": {
-            "Timing Chain / Belt": { "tags": ["timing", "ice", "relearn"] },
-            "Tensioner & Guides": { "tags": ["timing"] },
-            "VVT Solenoids & Oil Control Valves": { "tags": ["vvt", "solenoid", "electrical"] },
-            "VVT Phasers / Sprockets": { "tags": ["vvt", "relearn"] },
-            "Camshaft & Crankshaft Sprockets": []
+            "Timing Chain / Belt": {
+              "tags": [
+                "timing",
+                "ice",
+                "relearn"
+              ]
+            },
+            "Tensioner & Guides": {
+              "tags": [
+                "timing"
+              ]
+            },
+            "VVT Solenoids & Oil Control Valves": {
+              "tags": [
+                "vvt",
+                "solenoid",
+                "electrical"
+              ]
+            },
+            "VVT Phasers / Sprockets": {
+              "tags": [
+                "vvt",
+                "relearn"
+              ]
+            },
+            "Camshaft & Crankshaft Sprockets": {
+              "tags": []
+            }
           },
           "Cylinder Head": {
-            "Valve Cover & Seals": [],
-            "Head Gasket": { "tags": ["head_gasket"] },
-            "Valvetrain (Rocker Arms, Lifters, Cam Followers)": [],
-            "Camshaft Removal / Installation": { "tags": ["cam"] }
+            "Valve Cover & Seals": {
+              "tags": []
+            },
+            "Head Gasket": {
+              "tags": [
+                "head_gasket"
+              ]
+            },
+            "Valvetrain (Rocker Arms, Lifters, Cam Followers)": {
+              "tags": []
+            },
+            "Camshaft Removal / Installation": {
+              "tags": [
+                "cam"
+              ]
+            }
           },
           "Intake Manifold & Throttle Body": {
-            "Intake Manifold": [],
-            "Throttle Body Cleaning / Adaptation": { "tags": ["throttle", "relearn"] },
-            "Throttle Position Sensor / Electronic Throttle Body": { "tags": ["tps", "sensor", "electrical", "relearn"] },
-            "Exhaust Manifold / Headers": []
+            "Intake Manifold": {
+              "tags": []
+            },
+            "Throttle Body Cleaning / Adaptation": {
+              "tags": [
+                "throttle",
+                "relearn"
+              ]
+            },
+            "Throttle Position Sensor / Electronic Throttle Body": {
+              "tags": [
+                "tps",
+                "sensor",
+                "electrical",
+                "relearn"
+              ]
+            },
+            "Exhaust Manifold / Headers": {
+              "tags": []
+            }
           },
           "Crankshaft & Oil Pan": {
-            "Oil Pan & Pickup Tube": [],
-            "Front & Rear Main Seals": [],
-            "Harmonic Balancer": []
+            "Oil Pan & Pickup Tube": {
+              "tags": []
+            },
+            "Front & Rear Main Seals": {
+              "tags": []
+            },
+            "Harmonic Balancer": {
+              "tags": []
+            }
           },
           "Serpentine Belt & Pulleys": {
-            "Serpentine Belt & Tensioner": [],
-            "Idler Pulleys": [],
-            "Alternator Decoupler Pulley": []
+            "Serpentine Belt & Tensioner": {
+              "tags": []
+            },
+            "Idler Pulleys": {
+              "tags": []
+            },
+            "Alternator Decoupler Pulley": {
+              "tags": []
+            }
           },
           "Engine & Transmission Mounts": {
-            "Motor Mounts / Torque Struts": { "tags": ["mount"] }
+            "Motor Mounts / Torque Struts": {
+              "tags": [
+                "mount"
+              ]
+            }
           }
         },
         "Sensors & Actuators": {
-          "Camshaft Position Sensor": { "tags": ["cam", "sensor", "electrical", "relearn"] },
-          "Crankshaft Position Sensor": { "tags": ["crank", "sensor", "electrical", "relearn"] },
-          "Knock Sensor(s)": { "tags": ["knock", "sensor", "electrical"] },
-          "MAP Sensor": { "tags": ["map", "sensor", "electrical"] },
-          "MAF Sensor": { "tags": ["maf", "sensor", "electrical"] },
-          "ECT Sensor (Coolant Temp)": { "tags": ["ect", "sensor", "electrical"] },
-          "IAT Sensor (Intake Air Temp)": { "tags": ["iat", "sensor", "electrical"] },
-          "Oil Pressure Sensor": { "tags": ["sensor", "electrical"] },
-          "VVT Pressure / Position Sensors": { "tags": ["vvt", "sensor", "electrical"] }
+          "Camshaft Position Sensor": {
+            "tags": [
+              "cam",
+              "sensor",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Crankshaft Position Sensor": {
+            "tags": [
+              "crank",
+              "sensor",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Knock Sensor(s)": {
+            "tags": [
+              "knock",
+              "sensor",
+              "electrical"
+            ]
+          },
+          "MAP Sensor": {
+            "tags": [
+              "map",
+              "sensor",
+              "electrical"
+            ]
+          },
+          "MAF Sensor": {
+            "tags": [
+              "maf",
+              "sensor",
+              "electrical"
+            ]
+          },
+          "ECT Sensor (Coolant Temp)": {
+            "tags": [
+              "ect",
+              "sensor",
+              "electrical"
+            ]
+          },
+          "IAT Sensor (Intake Air Temp)": {
+            "tags": [
+              "iat",
+              "sensor",
+              "electrical"
+            ]
+          },
+          "Oil Pressure Sensor": {
+            "tags": [
+              "sensor",
+              "electrical"
+            ]
+          },
+          "VVT Pressure / Position Sensors": {
+            "tags": [
+              "vvt",
+              "sensor",
+              "electrical"
+            ]
+          }
         },
         "Lubrication System": {
-          "Oil Pump": [],
-          "Oil Filter Housing & Cooler": [],
-          "PCV System & Oil Separator": []
+          "Oil Pump": {
+            "tags": []
+          },
+          "Oil Filter Housing & Cooler": {
+            "tags": []
+          },
+          "PCV System & Oil Separator": {
+            "tags": []
+          }
         },
         "Forced Induction": {
-          "Turbocharger": { "tags": ["turbo", "electrical", "relearn"] },
-          "Supercharger": [],
-          "Charge Pipes & Intercooler": [],
-          "Wastegate & Bypass Valves": { "tags": ["solenoid", "electrical"] }
+          "Turbocharger": {
+            "tags": [
+              "turbo",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Supercharger": {
+            "tags": []
+          },
+          "Charge Pipes & Intercooler": {
+            "tags": []
+          },
+          "Wastegate & Bypass Valves": {
+            "tags": [
+              "solenoid",
+              "electrical"
+            ]
+          }
         }
       }
     },
-
     "Fuel System": {
       "sub": {
         "Fuel Delivery": {
-          "Fuel Pump (In-Tank & High-Pressure)": { "tags": ["pump", "electrical"] },
-          "Fuel Filter": [],
-          "Fuel Pressure Regulator": [],
-          "Fuel Rails & Lines": [],
-          "Fuel Injector Cleaning / Flow Test": []
+          "Fuel Pump (In-Tank & High-Pressure)": {
+            "tags": [
+              "pump",
+              "electrical"
+            ]
+          },
+          "Fuel Filter": {
+            "tags": []
+          },
+          "Fuel Pressure Regulator": {
+            "tags": []
+          },
+          "Fuel Rails & Lines": {
+            "tags": []
+          },
+          "Fuel Injector Cleaning / Flow Test": {
+            "tags": []
+          }
         },
         "Injectors": {
-          "Port / Direct Injectors": { "tags": ["injector", "electrical"] },
-          "Injector Seals & O-Rings": []
+          "Port / Direct Injectors": {
+            "tags": [
+              "injector",
+              "electrical"
+            ]
+          },
+          "Injector Seals & O-Rings": {
+            "tags": []
+          }
         },
         "EVAP System": {
-          "Purge Valve": { "tags": ["solenoid", "electrical"] },
-          "Vent Valve": { "tags": ["solenoid", "electrical"] },
-          "Leak Detection Pump": { "tags": ["pump", "electrical"] }
+          "Purge Valve": {
+            "tags": [
+              "solenoid",
+              "electrical"
+            ]
+          },
+          "Vent Valve": {
+            "tags": [
+              "solenoid",
+              "electrical"
+            ]
+          },
+          "Leak Detection Pump": {
+            "tags": [
+              "pump",
+              "electrical"
+            ]
+          }
         }
       }
     },
-
     "Ignition System": {
       "sub": {
-        "Coil-on-Plug / Coil Packs": { "tags": ["coil", "electrical"] },
-        "Spark Plugs & Tubes": []
+        "Coil-on-Plug / Coil Packs": {
+          "tags": [
+            "coil",
+            "electrical"
+          ]
+        },
+        "Spark Plugs & Tubes": {
+          "tags": []
+        }
       }
     },
-
     "Cooling System": {
       "sub": {
-        "Radiator & Hoses": [],
-        "Thermostat & Housing": [],
-        "Water Pump (Mechanical)": { "tags": ["pump"] },
-        "Auxiliary Electric Water Pump": { "tags": ["pump", "electrical"] },
-        "Cooling Fans & Clutch": { "tags": ["fan", "electrical"] },
-        "Coolant Reservoir & Sensors": { "tags": ["sensor"] },
-        "Cooling System Bleeding & Fill Procedure": []
+        "Radiator & Hoses": {
+          "tags": []
+        },
+        "Thermostat & Housing": {
+          "tags": []
+        },
+        "Water Pump (Mechanical)": {
+          "tags": [
+            "pump"
+          ]
+        },
+        "Auxiliary Electric Water Pump": {
+          "tags": [
+            "pump",
+            "electrical"
+          ]
+        },
+        "Cooling Fans & Clutch": {
+          "tags": [
+            "fan",
+            "electrical"
+          ]
+        },
+        "Coolant Reservoir & Sensors": {
+          "tags": [
+            "sensor"
+          ]
+        },
+        "Cooling System Bleeding & Fill Procedure": {
+          "tags": []
+        }
       }
     },
-
     "Transmission & Driveline": {
       "sub": {
         "Transmission Assembly R&R": {
-           "Automatic Transmission R&R": { "tags": ["assembly_rr", "relearn"] },
-           "Manual Transmission R&R": { "tags": ["assembly_rr"] }
+          "Automatic Transmission R&R": {
+            "tags": [
+              "assembly_rr",
+              "relearn"
+            ]
+          },
+          "Manual Transmission R&R": {
+            "tags": [
+              "assembly_rr"
+            ]
+          }
         },
-        "Rear Axle Assembly": { "tags": ["assembly_rr"] },
+        "Rear Axle Assembly": {
+          "tags": [
+            "assembly_rr"
+          ]
+        },
         "Automatic Transmission": {
-          "Valve Body & Solenoids": { "tags": ["solenoid", "electrical"] },
-          "Transmission Filter & Fluid Service": [],
-          "Torque Converter": [],
-          "Seals & Cooler Lines": [],
-          "Shift Cable / Linkage Adjustment": []
+          "Valve Body & Solenoids": {
+            "tags": [
+              "solenoid",
+              "electrical"
+            ]
+          },
+          "Transmission Filter & Fluid Service": {
+            "tags": []
+          },
+          "Torque Converter": {
+            "tags": []
+          },
+          "Seals & Cooler Lines": {
+            "tags": []
+          },
+          "Shift Cable / Linkage Adjustment": {
+            "tags": []
+          }
         },
         "Manual Transmission / Clutch": {
-          "Clutch Kit": [],
-          "Slave & Master Cylinder": [],
-          "Flywheel & Pilot Bearing": []
+          "Clutch Kit": {
+            "tags": []
+          },
+          "Slave & Master Cylinder": {
+            "tags": []
+          },
+          "Flywheel & Pilot Bearing": {
+            "tags": []
+          }
         },
-        "Transfer Case & PTU": [],
+        "Transfer Case & PTU": {
+          "tags": []
+        },
         "Driveshafts & CV Axles": {
-          "CV Boots & Joints": [],
-          "Center Support Bearing": []
+          "CV Boots & Joints": {
+            "tags": []
+          },
+          "Center Support Bearing": {
+            "tags": []
+          }
         },
         "Differential": {
-           "Ring & Pinion / Carrier Bearings": { "tags": ["diff", "relearn"] },
-           "Pinion Seal": { "tags": ["diff"] },
-           "E-Locker Actuator / Solenoid": { "tags": ["diff", "electrical", "actuator"] },
-           "Differential Cover & Fluid": []
+          "Ring & Pinion / Carrier Bearings": {
+            "tags": [
+              "diff",
+              "relearn"
+            ]
+          },
+          "Pinion Seal": {
+            "tags": [
+              "diff"
+            ]
+          },
+          "E-Locker Actuator / Solenoid": {
+            "tags": [
+              "diff",
+              "electrical",
+              "actuator"
+            ]
+          },
+          "Differential Cover & Fluid": {
+            "tags": []
+          }
         }
       }
     },
-
     "Brakes & Traction Control": {
       "sub": {
         "Front Brakes": {
-          "Pads & Rotors": [],
-          "Calipers & Hardware": [],
-          "Brake Hoses": []
+          "Pads & Rotors": {
+            "tags": []
+          },
+          "Calipers & Hardware": {
+            "tags": []
+          },
+          "Brake Hoses": {
+            "tags": []
+          }
         },
         "Rear Brakes": {
-          "Pads & Rotors / Shoes & Drums": [],
-          "Calipers & Hardware": [],
-          "Parking Brake Cables / Actuator": { "tags": ["electrical"] }
+          "Pads & Rotors / Shoes & Drums": {
+            "tags": []
+          },
+          "Calipers & Hardware": {
+            "tags": []
+          },
+          "Parking Brake Cables / Actuator": {
+            "tags": [
+              "electrical"
+            ]
+          }
         },
         "Hydraulic System": {
-          "Master Cylinder": [],
-          "Brake Booster": [],
-          "Brake Fluid Flush / Bleeding": []
+          "Master Cylinder": {
+            "tags": []
+          },
+          "Brake Booster": {
+            "tags": []
+          },
+          "Brake Fluid Flush / Bleeding": {
+            "tags": []
+          }
         },
         "ABS / ESC": {
-          "Wheel Speed Sensors": { "tags": ["sensor", "electrical"] },
-          "ABS Module & Pump": { "tags": ["module", "electrical"] },
-          "Tone Rings": [],
-          "ABS Automated Bleed Procedure": { "tags": ["relearn"] }
+          "Wheel Speed Sensors": {
+            "tags": [
+              "sensor",
+              "electrical"
+            ]
+          },
+          "ABS Module & Pump": {
+            "tags": [
+              "module",
+              "electrical"
+            ]
+          },
+          "Tone Rings": {
+            "tags": []
+          },
+          "ABS Automated Bleed Procedure": {
+            "tags": [
+              "relearn"
+            ]
+          }
         }
       }
     },
-
     "Steering & Suspension": {
       "sub": {
         "Steering": {
-          "Power Steering Pump & Lines": { "tags": ["pump", "electrical"] },
-          "Rack & Pinion / Steering Gear": [],
-          "Tie Rod Ends & Boots": [],
-          "Electric Steering Motor / Column": { "tags": ["motor", "electrical"] },
-          "Alignment & Wheel Geometry": { "tags": ["relearn"] }
+          "Power Steering Pump & Lines": {
+            "tags": [
+              "pump",
+              "electrical"
+            ]
+          },
+          "Rack & Pinion / Steering Gear": {
+            "tags": []
+          },
+          "Tie Rod Ends & Boots": {
+            "tags": []
+          },
+          "Electric Steering Motor / Column": {
+            "tags": [
+              "motor",
+              "electrical"
+            ]
+          },
+          "Alignment & Wheel Geometry": {
+            "tags": [
+              "relearn"
+            ]
+          }
         },
         "Front Suspension": {
-          "Struts / Shocks": [],
-          "Control Arms & Bushings": [],
-          "Ball Joints": [],
-          "Sway Bar Links & Bushings": []
+          "Struts / Shocks": {
+            "tags": []
+          },
+          "Control Arms & Bushings": {
+            "tags": []
+          },
+          "Ball Joints": {
+            "tags": []
+          },
+          "Sway Bar Links & Bushings": {
+            "tags": []
+          }
         },
         "Rear Suspension": {
-          "Shocks / Coilovers": [],
-          "Control Arms & Bushings": [],
-          "Trailing Arms": []
+          "Shocks / Coilovers": {
+            "tags": []
+          },
+          "Control Arms & Bushings": {
+            "tags": []
+          },
+          "Trailing Arms": {
+            "tags": []
+          }
         },
-        "Wheel Bearings & Hubs": []
-      }
-    },
-
-    "Exhaust & Emissions": {
-      "sub": {
-        "Exhaust System": {
-          "Catalytic Converters": [],
-          "Muffler & Resonator": [],
-          "Exhaust Manifold / Downpipe": [],
-          "Flex Pipe Repair": []
-        },
-        "O2 & A/F Sensors": { "tags": ["sensor", "electrical"] },
-        "EGR System": { "tags": ["valve", "electrical"] },
-        "Secondary Air Injection": { "tags": ["pump", "electrical"] },
-        "Diesel Aftertreatment (DPF, DEF, SCR)": []
-      }
-    },
-
-        "HVAC & Cabin Climate": {
-      "sub": {
-        "A/C System": {
-          "Compressor & Clutch": { "tags": ["electrical"] },
-          "Condenser & Evaporator": [],
-          "Expansion Valve & Lines": [],
-          "Refrigerant Recharge": []
-        },
-        "Heater Core & Blend Doors": { "tags": ["actuator", "electrical", "relearn"] },
-        "Blower Motor & Resistor": { "tags": ["motor", "electrical"] },
-        "Cabin Air Filter": []
-      }
-    },
-
-    "Electrical & Lighting": {
-      "sub": {
-        "Battery & Charging": {
-          "Battery": { "tags": ["relearn"] },
-          "Alternator": { "tags": ["electrical"] },
-          "Starter": { "tags": ["motor", "electrical"] }
-        },
-        "Lighting": {
-          "Headlights & Bulbs": { "tags": ["lamp", "electrical"] },
-          "Taillights & Brake Lights": { "tags": ["lamp", "electrical"] },
-          "Turn Signals & Markers": { "tags": ["lamp", "electrical"] }
-        },
-        "Wipers & Washers": {
-          "Wiper Blades / Arms": [],
-          "Washer Pump & Reservoir": { "tags": ["pump", "electrical"] }
-        },
-        "Control Modules": {
-          "Engine Control Module (ECM/PCM)": { "tags": ["module", "ecm", "electrical", "relearn"] },
-          "Transmission Control Module (TCM/TCU)": { "tags": ["module", "tcm", "electrical", "relearn"] },
-          "Body Control Module (BCM)": { "tags": ["module", "bcm", "electrical"] },
-          "ABS / ESC Module": { "tags": ["module", "abs", "electrical"] },
-          "Airbag / SRS Module": { "tags": ["module", "airbag", "electrical"] },
-          "Dynamic Modules (auto-populated)": { "note": "Transfer Case, HV Battery ECU, etc. – generated from scan" }
+        "Wheel Bearings & Hubs": {
+          "tags": []
         }
       }
     },
-
+    "Exhaust & Emissions": {
+      "sub": {
+        "Exhaust System": {
+          "Catalytic Converters": {
+            "tags": []
+          },
+          "Muffler & Resonator": {
+            "tags": []
+          },
+          "Exhaust Manifold / Downpipe": {
+            "tags": []
+          },
+          "Flex Pipe Repair": {
+            "tags": []
+          }
+        },
+        "O2 & A/F Sensors": {
+          "tags": [
+            "sensor",
+            "electrical"
+          ]
+        },
+        "EGR System": {
+          "tags": [
+            "valve",
+            "electrical"
+          ]
+        },
+        "Secondary Air Injection": {
+          "tags": [
+            "pump",
+            "electrical"
+          ]
+        },
+        "Diesel Aftertreatment (DPF, DEF, SCR)": {
+          "tags": []
+        }
+      }
+    },
+    "HVAC & Cabin Climate": {
+      "sub": {
+        "A/C System": {
+          "Compressor & Clutch": {
+            "tags": [
+              "electrical"
+            ]
+          },
+          "Condenser & Evaporator": {
+            "tags": []
+          },
+          "Expansion Valve & Lines": {
+            "tags": []
+          },
+          "Refrigerant Recharge": {
+            "tags": []
+          }
+        },
+        "Heater Core & Blend Doors": {
+          "tags": [
+            "actuator",
+            "electrical",
+            "relearn"
+          ]
+        },
+        "Blower Motor & Resistor": {
+          "tags": [
+            "motor",
+            "electrical"
+          ]
+        },
+        "Cabin Air Filter": {
+          "tags": []
+        }
+      }
+    },
+    "Electrical & Lighting": {
+      "sub": {
+        "Battery & Charging": {
+          "Battery": {
+            "tags": [
+              "relearn"
+            ]
+          },
+          "Alternator": {
+            "tags": [
+              "electrical"
+            ]
+          },
+          "Starter": {
+            "tags": [
+              "motor",
+              "electrical"
+            ]
+          }
+        },
+        "Lighting": {
+          "Headlights & Bulbs": {
+            "tags": [
+              "lamp",
+              "electrical"
+            ]
+          },
+          "Taillights & Brake Lights": {
+            "tags": [
+              "lamp",
+              "electrical"
+            ]
+          },
+          "Turn Signals & Markers": {
+            "tags": [
+              "lamp",
+              "electrical"
+            ]
+          }
+        },
+        "Wipers & Washers": {
+          "Wiper Blades / Arms": {
+            "tags": []
+          },
+          "Washer Pump & Reservoir": {
+            "tags": [
+              "pump",
+              "electrical"
+            ]
+          }
+        },
+        "Control Modules": {
+          "Engine Control Module (ECM/PCM)": {
+            "tags": [
+              "module",
+              "ecm",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Transmission Control Module (TCM/TCU)": {
+            "tags": [
+              "module",
+              "tcm",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Body Control Module (BCM)": {
+            "tags": [
+              "module",
+              "bcm",
+              "electrical"
+            ]
+          },
+          "ABS / ESC Module": {
+            "tags": [
+              "module",
+              "abs",
+              "electrical"
+            ]
+          },
+          "Airbag / SRS Module": {
+            "tags": [
+              "module",
+              "airbag",
+              "electrical"
+            ]
+          },
+          "Dynamic Modules (auto-populated)": {
+            "note": "Transfer Case, HV Battery ECU, etc. \u2013 generated from scan"
+          }
+        }
+      }
+    },
     "Body & Interior": {
       "sub": {
         "Doors & Windows": {
-          "Window Regulators & Motors": { "tags": ["motor", "electrical", "relearn"] },
-          "Door Lock Actuators & Switches": { "tags": ["actuator", "electrical"] }
+          "Window Regulators & Motors": {
+            "tags": [
+              "motor",
+              "electrical",
+              "relearn"
+            ]
+          },
+          "Door Lock Actuators & Switches": {
+            "tags": [
+              "actuator",
+              "electrical"
+            ]
+          }
         },
-        "Mirrors & Glass": ["Side Mirrors", "Rearview Mirror", "Windshield & Seals"],
-        "Hood / Trunk & Latches": ["Lift Supports", "Hood Release Cable"]
+        "Mirrors & Glass": [
+          "Side Mirrors",
+          "Rearview Mirror",
+          "Windshield & Seals"
+        ],
+        "Hood / Trunk & Latches": [
+          "Lift Supports",
+          "Hood Release Cable"
+        ]
       }
     },
-
     "Wheels & Tires": {
       "sub": {
-        "TPMS Sensors & Service Kits": { "tags": ["sensor", "tpms", "electrical", "relearn"] },
-        "Lug Nuts & Studs": [],
-        "Tire Rotation & Balance Procedure": []
+        "TPMS Sensors & Service Kits": {
+          "tags": [
+            "sensor",
+            "tpms",
+            "electrical",
+            "relearn"
+          ]
+        },
+        "Lug Nuts & Studs": {
+          "tags": []
+        },
+        "Tire Rotation & Balance Procedure": {
+          "tags": []
+        }
       }
     },
-
     "Hybrid / EV Specific": {
-      "tags": ["requires_ev_or_hybrid", "collapsible"],
-      "sub": { "High-Voltage Battery": [], "Inverter & DC-DC": [], "Electric Drive Motor": [], "Charging Port": [], "HV Cooling": [], "PTC Cabin Heater": [] }
+      "tags": [
+        "requires_ev_or_hybrid",
+        "collapsible"
+      ],
+      "sub": {
+        "High-Voltage Battery": {
+          "tags": []
+        },
+        "Inverter & DC-DC": {
+          "tags": []
+        },
+        "Electric Drive Motor": {
+          "tags": []
+        },
+        "Charging Port": {
+          "tags": []
+        },
+        "HV Cooling": {
+          "tags": []
+        },
+        "PTC Cabin Heater": {
+          "tags": []
+        }
+      }
     },
-
     "ADAS & Safety Systems": {
-      "tags": ["requires_adas_era", "collapsible"],
-      "sub": { "Cameras": ["Forward", "360°", "Rear"], "Radar & Ultrasonic": [], "Lane Keep & Adaptive Cruise": [], "Airbags & Seatbelts": [] }
+      "tags": [
+        "requires_adas_era",
+        "collapsible"
+      ],
+      "sub": {
+        "Cameras": [
+          "Forward",
+          "360\u00b0",
+          "Rear"
+        ],
+        "Radar & Ultrasonic": {
+          "tags": []
+        },
+        "Lane Keep & Adaptive Cruise": {
+          "tags": []
+        },
+        "Airbags & Seatbelts": {
+          "tags": []
+        }
+      }
     }
   }
 }
