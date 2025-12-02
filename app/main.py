@@ -2,11 +2,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
+import sys
 import logging
 from pathlib import Path
 
+# Add the app directory to Python path (needed for Vercel serverless)
+app_dir = Path(__file__).parent
+if str(app_dir) not in sys.path:
+    sys.path.insert(0, str(app_dir))
+
 # Load .env from the app directory (works regardless of where project is cloned)
-env_path = Path(__file__).parent / ".env"
+env_path = app_dir / ".env"
 load_dotenv(dotenv_path=env_path)
 
 # Configure logging
