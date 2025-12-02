@@ -20,7 +20,7 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
+# Virtual environments (uv creates .venv)
 .venv/
 venv/
 env/
@@ -47,12 +47,3 @@ Thumbs.db
 # Test output
 test_output.html
 *.log
-
-# Keep app/ but ignore virtual environment and cache
-app/.venv/
-app/__pycache__/
-app/**/__pycache__/
-app/.env
-app/uv.lock
-# WSL artifacts
-*:Zone.Identifier
