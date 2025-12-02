@@ -1,4 +1,5 @@
-from pydantic_settings import BaseSettings
+# Pydantic v1 compatibility - BaseSettings is in pydantic directly
+from pydantic import BaseSettings
 from typing import Optional
 import os
 
