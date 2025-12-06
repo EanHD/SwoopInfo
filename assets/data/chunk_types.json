@@ -1,0 +1,319 @@
+{
+  "_version": "2.0",
+  "_description": "Chunk type definitions with strict field schemas. AI fills VALUES only, never KEYS.",
+  
+  "fluid_capacity": {
+    "description": "Fluid capacities and specifications",
+    "content_id_pattern": "fluid_capacity:{fluid_type}",
+    "fields": {
+      "fluid_type": { "type": "string", "required": true, "enum": ["engine_oil", "transmission", "coolant", "brake", "power_steering", "differential", "transfer_case"] },
+      "capacity_qty": { "type": "number", "required": true, "unit": "quarts" },
+      "capacity_liters": { "type": "number", "required": true, "unit": "liters" },
+      "spec": { "type": "string", "required": true, "example": "0W-20, DEX-VI, DOT 4" },
+      "oem_part_number": { "type": "string", "required": false },
+      "filter_part_number": { "type": "string", "required": false },
+      "drain_plug_torque_ftlb": { "type": "number", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "torque_spec": {
+    "description": "Torque specifications for fasteners",
+    "content_id_pattern": "torque_spec:{component}",
+    "fields": {
+      "component": { "type": "string", "required": true },
+      "fastener": { "type": "string", "required": true },
+      "torque_ftlb": { "type": "number", "required": true },
+      "torque_nm": { "type": "number", "required": true },
+      "sequence": { "type": "string", "required": false, "example": "star pattern, center-out" },
+      "angle_spec": { "type": "string", "required": false, "example": "+ 90°" },
+      "thread_prep": { "type": "string", "required": false, "example": "clean and dry, loctite blue" },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "procedure": {
+    "description": "Step-by-step repair procedures",
+    "content_id_pattern": "procedure:{procedure_name}",
+    "fields": {
+      "procedure_name": { "type": "string", "required": true },
+      "steps": { "type": "array", "required": true, "items": "string" },
+      "tools_required": { "type": "array", "required": false, "items": "string" },
+      "parts_required": { "type": "array", "required": false, "items": "string" },
+      "time_estimate_hours": { "type": "number", "required": false },
+      "difficulty": { "type": "string", "required": false, "enum": ["easy", "moderate", "advanced", "expert"] },
+      "warnings": { "type": "array", "required": false, "items": "string" },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "part_location": {
+    "description": "Where to find a component on the vehicle",
+    "content_id_pattern": "part_location:{component}",
+    "fields": {
+      "component": { "type": "string", "required": true },
+      "location": { "type": "string", "required": true },
+      "access_notes": { "type": "string", "required": false },
+      "removal_required": { "type": "array", "required": false, "items": "string" }
+    }
+  },
+
+  "known_issue": {
+    "description": "Common problems and failures for this vehicle",
+    "content_id_pattern": "known_issue:{issue_slug}",
+    "fields": {
+      "issue_slug": { "type": "string", "required": true },
+      "title": { "type": "string", "required": true },
+      "symptom": { "type": "string", "required": true },
+      "root_cause": { "type": "string", "required": true },
+      "affected_years": { "type": "array", "required": false, "items": "number" },
+      "tsb_ref": { "type": "string", "required": false },
+      "fix_summary": { "type": "string", "required": true },
+      "parts_commonly_replaced": { "type": "array", "required": false, "items": "string" }
+    }
+  },
+
+  "dtc": {
+    "description": "Diagnostic Trouble Code information",
+    "content_id_pattern": "dtc:{code}",
+    "fields": {
+      "code": { "type": "string", "required": true, "example": "P0301" },
+      "definition": { "type": "string", "required": true },
+      "symptoms": { "type": "array", "required": true, "items": "string" },
+      "possible_causes": { "type": "array", "required": true, "items": "string" },
+      "diagnosis_steps": { "type": "array", "required": true, "items": "string" },
+      "related_codes": { "type": "array", "required": false, "items": "string" },
+      "common_fix": { "type": "string", "required": false }
+    }
+  },
+
+  "tsb": {
+    "description": "Technical Service Bulletin details",
+    "content_id_pattern": "tsb:{tsb_number}",
+    "fields": {
+      "tsb_number": { "type": "string", "required": true },
+      "title": { "type": "string", "required": true },
+      "issue_date": { "type": "string", "required": true, "format": "YYYY-MM-DD" },
+      "affected_vins": { "type": "string", "required": false },
+      "symptom": { "type": "string", "required": true },
+      "cause": { "type": "string", "required": false },
+      "fix": { "type": "string", "required": true },
+      "parts_required": { "type": "array", "required": false, "items": "string" },
+      "labor_time_hours": { "type": "number", "required": false }
+    }
+  },
+
+  "recall": {
+    "description": "Safety recall information from NHTSA",
+    "content_id_pattern": "recall:{nhtsa_id}",
+    "fields": {
+      "nhtsa_id": { "type": "string", "required": true },
+      "title": { "type": "string", "required": true },
+      "component": { "type": "string", "required": true },
+      "summary": { "type": "string", "required": true },
+      "consequence": { "type": "string", "required": true },
+      "remedy": { "type": "string", "required": true },
+      "recall_date": { "type": "string", "required": true, "format": "YYYY-MM-DD" }
+    }
+  },
+
+  "wiring": {
+    "description": "Wire colors and pin assignments (text-based, no diagrams)",
+    "content_id_pattern": "wiring:{circuit}",
+    "fields": {
+      "circuit": { "type": "string", "required": true },
+      "connector_id": { "type": "string", "required": false },
+      "pin_count": { "type": "number", "required": false },
+      "pins": { "type": "array", "required": true, "items": "object" },
+      "ground_location": { "type": "string", "required": false },
+      "fuse_location": { "type": "string", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "firing_order": {
+    "description": "Cylinder firing order and layout",
+    "content_id_pattern": "firing_order:engine",
+    "fields": {
+      "order": { "type": "string", "required": true, "example": "1-3-4-2" },
+      "cylinder_layout": { "type": "string", "required": true, "enum": ["inline", "v", "flat", "rotary"] },
+      "cylinder_count": { "type": "number", "required": true },
+      "front_cylinder": { "type": "string", "required": false, "example": "Cylinder 1 is front-right" },
+      "coil_assignment": { "type": "string", "required": false }
+    }
+  },
+
+  "belt_routing": {
+    "description": "Serpentine/accessory belt routing path",
+    "content_id_pattern": "belt_routing:serpentine",
+    "fields": {
+      "path_description": { "type": "string", "required": true },
+      "tensioner_location": { "type": "string", "required": true },
+      "tensioner_tool": { "type": "string", "required": false },
+      "belt_part_number": { "type": "string", "required": false },
+      "components": { "type": "array", "required": true, "items": "string" }
+    }
+  },
+
+  "labor_time": {
+    "description": "Estimated labor time for a repair",
+    "content_id_pattern": "labor_time:{job}",
+    "fields": {
+      "job": { "type": "string", "required": true },
+      "book_hours": { "type": "number", "required": true },
+      "real_world_hours": { "type": "number", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "part_number": {
+    "description": "OEM and aftermarket part numbers",
+    "content_id_pattern": "part_number:{part}",
+    "fields": {
+      "part": { "type": "string", "required": true },
+      "oem_number": { "type": "string", "required": true },
+      "oem_price_usd": { "type": "number", "required": false },
+      "aftermarket": { "type": "array", "required": false, "items": "object" },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "reset_procedure": {
+    "description": "How to reset service lights and monitors",
+    "content_id_pattern": "reset_procedure:{system}",
+    "safety_critical": false,
+    "fields": {
+      "system": { "type": "string", "required": true, "enum": ["oil_life", "tire_pressure", "maintenance_required", "brake_service"] },
+      "method": { "type": "string", "required": true, "enum": ["button_sequence", "obd_tool", "dash_menu", "pedal_sequence"] },
+      "steps": { "type": "array", "required": true, "items": "string" },
+      "requires_obd": { "type": "boolean", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "brake_spec": {
+    "description": "Brake rotor and pad specifications",
+    "content_id_pattern": "brake_spec:{position}",
+    "safety_critical": true,
+    "fields": {
+      "position": { "type": "string", "required": true, "enum": ["front", "rear"] },
+      "rotor_diameter_mm": { "type": "number", "required": true },
+      "rotor_min_thickness_mm": { "type": "number", "required": true },
+      "rotor_discard_thickness_mm": { "type": "number", "required": false },
+      "pad_min_thickness_mm": { "type": "number", "required": true },
+      "is_vented": { "type": "boolean", "required": false },
+      "has_wear_sensor": { "type": "boolean", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "battery_spec": {
+    "description": "Battery specifications for testing and replacement",
+    "content_id_pattern": "battery_spec:main",
+    "fields": {
+      "group_size": { "type": "string", "required": true, "example": "24F, 35, H6" },
+      "cca": { "type": "number", "required": true, "description": "Cold Cranking Amps" },
+      "voltage": { "type": "number", "required": true, "default": 12 },
+      "terminal_type": { "type": "string", "required": false, "enum": ["top_post", "side_post", "both"] },
+      "hold_down_type": { "type": "string", "required": false },
+      "oem_part_number": { "type": "string", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "tire_spec": {
+    "description": "Tire and wheel specifications",
+    "content_id_pattern": "tire_spec:oem",
+    "fields": {
+      "size": { "type": "string", "required": true, "example": "225/45R17" },
+      "front_pressure_psi": { "type": "number", "required": true },
+      "rear_pressure_psi": { "type": "number", "required": true },
+      "spare_size": { "type": "string", "required": false },
+      "spare_pressure_psi": { "type": "number", "required": false },
+      "lug_pattern": { "type": "string", "required": false, "example": "5x114.3" },
+      "rotation_pattern": { "type": "string", "required": false, "enum": ["front_to_rear", "x_pattern", "forward_cross", "rearward_cross", "side_to_side"] },
+      "tpms_relearn_required": { "type": "boolean", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "jacking_point": {
+    "description": "Safe lift points for the vehicle",
+    "content_id_pattern": "jacking_point:location",
+    "safety_critical": true,
+    "fields": {
+      "front_jack_point": { "type": "string", "required": true },
+      "rear_jack_point": { "type": "string", "required": true },
+      "front_stand_points": { "type": "string", "required": true },
+      "rear_stand_points": { "type": "string", "required": true },
+      "pinch_weld_safe": { "type": "boolean", "required": false },
+      "warnings": { "type": "array", "required": false, "items": "string" },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "bulb_spec": {
+    "description": "Light bulb types and part numbers",
+    "content_id_pattern": "bulb_spec:{light_type}",
+    "fields": {
+      "light_type": { "type": "string", "required": true, "enum": ["headlight_low", "headlight_high", "fog", "turn_front", "turn_rear", "brake", "tail", "reverse", "license_plate", "interior_dome"] },
+      "bulb_type": { "type": "string", "required": true, "example": "H11, 9005, 7440" },
+      "wattage": { "type": "number", "required": false },
+      "is_led_oem": { "type": "boolean", "required": false },
+      "replacement_difficulty": { "type": "string", "required": false, "enum": ["easy", "moderate", "hard", "dealer_only"] },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "filter_spec": {
+    "description": "Air and cabin filter specifications",
+    "content_id_pattern": "filter_spec:{filter_type}",
+    "fields": {
+      "filter_type": { "type": "string", "required": true, "enum": ["engine_air", "cabin_air", "fuel"] },
+      "oem_part_number": { "type": "string", "required": true },
+      "common_aftermarket": { "type": "array", "required": false, "items": "string" },
+      "location_description": { "type": "string", "required": true },
+      "replacement_interval_miles": { "type": "number", "required": false },
+      "replacement_difficulty": { "type": "string", "required": false, "enum": ["easy", "moderate", "hard"] },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "wiper_spec": {
+    "description": "Wiper blade sizes and types",
+    "content_id_pattern": "wiper_spec:blades",
+    "fields": {
+      "driver_length_inches": { "type": "number", "required": true },
+      "passenger_length_inches": { "type": "number", "required": true },
+      "rear_length_inches": { "type": "number", "required": false },
+      "attachment_type": { "type": "string", "required": true, "enum": ["j_hook", "pinch_tab", "bayonet", "side_pin", "push_button"] },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "diagnostic_info": {
+    "description": "OBD port location and common codes",
+    "content_id_pattern": "diagnostic_info:obd",
+    "fields": {
+      "obd_location": { "type": "string", "required": true },
+      "obd_protocol": { "type": "string", "required": false, "enum": ["CAN", "ISO9141", "KWP2000", "J1850_PWM", "J1850_VPW"] },
+      "common_codes": { "type": "array", "required": false, "items": "object" },
+      "abs_code_access": { "type": "string", "required": false },
+      "srs_code_access": { "type": "string", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  },
+
+  "service_interval": {
+    "description": "Manufacturer recommended service intervals",
+    "content_id_pattern": "service_interval:{service}",
+    "fields": {
+      "service": { "type": "string", "required": true },
+      "miles_normal": { "type": "number", "required": true },
+      "miles_severe": { "type": "number", "required": false },
+      "months_normal": { "type": "number", "required": false },
+      "months_severe": { "type": "number", "required": false },
+      "notes": { "type": "string", "required": false }
+    }
+  }
+}

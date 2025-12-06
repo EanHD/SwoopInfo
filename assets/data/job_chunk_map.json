@@ -1,0 +1,514 @@
+{
+  "_version": "2.1",
+  "_description": "Maps job types to required chunks. Extended with diagnostic and common repair jobs.",
+  "oil_change": {
+    "display": "Oil Change",
+    "chunks": [
+      "fluid_capacity:engine_oil",
+      "torque_spec:drain_plug",
+      "torque_spec:oil_filter",
+      "part_location:oil_filter",
+      "part_location:oil_drain_plug",
+      "procedure:oil_change"
+    ]
+  },
+  "transmission_service": {
+    "display": "Transmission Fluid Service",
+    "chunks": [
+      "fluid_capacity:transmission",
+      "torque_spec:transmission_pan",
+      "torque_spec:transmission_drain",
+      "procedure:transmission_fluid_change"
+    ]
+  },
+  "coolant_flush": {
+    "display": "Coolant Flush",
+    "chunks": [
+      "fluid_capacity:coolant",
+      "part_location:thermostat",
+      "procedure:coolant_flush"
+    ]
+  },
+  "brake_pads_front": {
+    "display": "Front Brake Pads",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:front_caliper_bracket",
+      "torque_spec:front_caliper_slide",
+      "procedure:front_brake_pads"
+    ]
+  },
+  "brake_pads_rear": {
+    "display": "Rear Brake Pads",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:rear_caliper_bracket",
+      "torque_spec:rear_caliper_slide",
+      "procedure:rear_brake_pads"
+    ]
+  },
+  "brake_pads_rotors_front": {
+    "display": "Front Brake Pads & Rotors",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:front_caliper_bracket",
+      "torque_spec:front_caliper_slide",
+      "torque_spec:brake_rotor_set_screw",
+      "procedure:front_brake_pads",
+      "procedure:front_rotors"
+    ]
+  },
+  "brake_pads_rotors_rear": {
+    "display": "Rear Brake Pads & Rotors",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:rear_caliper_bracket",
+      "torque_spec:rear_caliper_slide",
+      "torque_spec:brake_rotor_set_screw",
+      "procedure:rear_brake_pads",
+      "procedure:rear_rotors"
+    ]
+  },
+  "spark_plugs": {
+    "display": "Spark Plug Replacement",
+    "chunks": [
+      "torque_spec:spark_plugs",
+      "torque_spec:ignition_coils",
+      "firing_order:engine",
+      "procedure:spark_plug_replacement"
+    ]
+  },
+  "serpentine_belt": {
+    "display": "Serpentine Belt Replacement",
+    "chunks": [
+      "belt_routing:serpentine",
+      "part_location:serpentine_belt_tensioner",
+      "procedure:serpentine_belt"
+    ]
+  },
+  "battery_replacement": {
+    "display": "Battery Replacement",
+    "chunks": [
+      "part_location:battery",
+      "torque_spec:battery_terminal",
+      "procedure:battery_replacement"
+    ]
+  },
+  "alternator": {
+    "display": "Alternator Replacement",
+    "chunks": [
+      "part_location:alternator",
+      "torque_spec:alternator",
+      "belt_routing:serpentine",
+      "procedure:alternator_replacement"
+    ]
+  },
+  "starter": {
+    "display": "Starter Replacement",
+    "chunks": [
+      "part_location:starter",
+      "torque_spec:starter",
+      "procedure:starter_replacement"
+    ]
+  },
+  "water_pump": {
+    "display": "Water Pump Replacement",
+    "chunks": [
+      "part_location:water_pump",
+      "torque_spec:water_pump",
+      "fluid_capacity:coolant",
+      "procedure:water_pump_replacement"
+    ]
+  },
+  "thermostat": {
+    "display": "Thermostat Replacement",
+    "chunks": [
+      "part_location:thermostat",
+      "torque_spec:thermostat_housing",
+      "fluid_capacity:coolant",
+      "procedure:thermostat_replacement"
+    ]
+  },
+  "timing_chain": {
+    "display": "Timing Chain Replacement",
+    "chunks": [
+      "torque_spec:timing_cover",
+      "procedure:timing_chain_replacement",
+      "labor_time:timing_chain_replacement"
+    ]
+  },
+  "timing_belt": {
+    "display": "Timing Belt Replacement",
+    "chunks": [
+      "torque_spec:timing_cover",
+      "procedure:timing_belt_replacement",
+      "labor_time:timing_belt_replacement"
+    ]
+  },
+  "valve_cover_gasket": {
+    "display": "Valve Cover Gasket",
+    "chunks": [
+      "torque_spec:valve_cover",
+      "procedure:valve_cover_gasket"
+    ]
+  },
+  "struts_front": {
+    "display": "Front Strut Replacement",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:strut_mount",
+      "torque_spec:strut_pinch_bolt",
+      "procedure:strut_replacement"
+    ]
+  },
+  "control_arm": {
+    "display": "Control Arm Replacement",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:control_arm",
+      "torque_spec:ball_joint",
+      "procedure:control_arm_replacement"
+    ]
+  },
+  "wheel_bearing": {
+    "display": "Wheel Bearing Replacement",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "torque_spec:axle_nut",
+      "procedure:wheel_bearing_replacement"
+    ]
+  },
+  "diagnostic": {
+    "display": "General Diagnostic",
+    "chunks": [
+      "diagnostic_info:obd",
+      "part_location:fuse_box_engine",
+      "part_location:fuse_box_interior"
+    ]
+  },
+  "check_engine_light": {
+    "display": "Check Engine Light Diagnosis",
+    "chunks": [
+      "diagnostic_info:obd"
+    ],
+    "note": "DTCs are fetched dynamically based on codes found"
+  },
+  "air_filter": {
+    "display": "Engine Air Filter Replacement",
+    "chunks": [
+      "filter_spec:engine_air",
+      "part_location:air_filter"
+    ]
+  },
+  "cabin_filter": {
+    "display": "Cabin Air Filter Replacement",
+    "chunks": [
+      "filter_spec:cabin_air",
+      "part_location:cabin_filter"
+    ]
+  },
+  "tire_rotation": {
+    "display": "Tire Rotation",
+    "chunks": [
+      "torque_spec:wheel_lug_nuts",
+      "tire_spec:oem",
+      "jacking_point:location"
+    ]
+  },
+  "wiper_blades": {
+    "display": "Wiper Blade Replacement",
+    "chunks": [
+      "wiper_spec:blades"
+    ]
+  },
+  "headlight_bulb": {
+    "display": "Headlight Bulb Replacement",
+    "chunks": [
+      "bulb_spec:headlight_low",
+      "bulb_spec:headlight_high"
+    ]
+  },
+  "driveway_diagnostic": {
+    "display": "Driveway Diagnostic (Swoop Bundle)",
+    "description": "35min diagnostic scan with code read and inspection",
+    "chunks": [
+      "diagnostic_info:obd",
+      "part_location:fuse_box_engine",
+      "part_location:fuse_box_interior",
+      "battery_spec:main",
+      "known_issue:common"
+    ],
+    "note": "Known issues populated based on YMM"
+  },
+  "safety_check": {
+    "display": "Safety Quick Check (Swoop Bundle)",
+    "description": "40min safety inspection",
+    "chunks": [
+      "brake_spec:front",
+      "brake_spec:rear",
+      "tire_spec:oem",
+      "bulb_spec:headlight_low",
+      "bulb_spec:brake",
+      "bulb_spec:turn_front",
+      "bulb_spec:turn_rear",
+      "battery_spec:main",
+      "fluid_capacity:brake"
+    ]
+  },
+  "road_trip_ready": {
+    "display": "Road Trip Ready (Swoop Bundle)",
+    "description": "45min comprehensive check",
+    "chunks": [
+      "fluid_capacity:engine_oil",
+      "fluid_capacity:coolant",
+      "fluid_capacity:brake",
+      "fluid_capacity:transmission",
+      "tire_spec:oem",
+      "belt_routing:serpentine",
+      "battery_spec:main",
+      "filter_spec:engine_air",
+      "filter_spec:cabin_air",
+      "brake_spec:front",
+      "brake_spec:rear",
+      "wiper_spec:blades"
+    ]
+  },
+  "pre_purchase_inspection": {
+    "display": "Pre-Purchase Inspection",
+    "description": "Comprehensive inspection for used car buyers",
+    "chunks": [
+      "diagnostic_info:obd",
+      "fluid_capacity:engine_oil",
+      "fluid_capacity:coolant",
+      "fluid_capacity:transmission",
+      "brake_spec:front",
+      "brake_spec:rear",
+      "tire_spec:oem",
+      "battery_spec:main",
+      "jacking_point:location",
+      "known_issue:common"
+    ],
+    "note": "Known issues and recalls fetched dynamically"
+  },
+  "ac_recharge": {
+    "display": "A/C Recharge",
+    "chunks": [
+      "fluid_capacity:ac_refrigerant",
+      "part_location:ac_service_ports",
+      "procedure:ac_recharge"
+    ]
+  },
+  "ac_compressor": {
+    "display": "A/C Compressor Replacement",
+    "chunks": [
+      "part_location:ac_compressor",
+      "torque_spec:ac_compressor",
+      "procedure:ac_compressor_replacement",
+      "fluid_capacity:ac_refrigerant"
+    ]
+  },
+  "power_steering_pump": {
+    "display": "Power Steering Pump Replacement",
+    "chunks": [
+      "part_location:power_steering_pump",
+      "torque_spec:power_steering_pump",
+      "procedure:power_steering_pump_replacement",
+      "fluid_capacity:power_steering"
+    ]
+  },
+  "power_steering_flush": {
+    "display": "Power Steering Fluid Flush",
+    "chunks": [
+      "fluid_capacity:power_steering",
+      "procedure:power_steering_flush"
+    ]
+  },
+  "fuel_pump": {
+    "display": "Fuel Pump Replacement",
+    "chunks": [
+      "part_location:fuel_pump",
+      "procedure:fuel_pump_replacement",
+      "labor_time:fuel_pump_replacement"
+    ]
+  },
+  "fuel_filter": {
+    "display": "Fuel Filter Replacement",
+    "chunks": [
+      "part_location:fuel_filter",
+      "filter_spec:fuel",
+      "procedure:fuel_filter_replacement"
+    ]
+  },
+  "oxygen_sensor": {
+    "display": "Oxygen Sensor Replacement",
+    "chunks": [
+      "part_location:oxygen_sensor",
+      "torque_spec:oxygen_sensor",
+      "procedure:oxygen_sensor_replacement",
+      "dtc:o2_sensor_codes"
+    ]
+  },
+  "catalytic_converter": {
+    "display": "Catalytic Converter Replacement",
+    "chunks": [
+      "part_location:catalytic_converter",
+      "torque_spec:exhaust_flanges",
+      "procedure:catalytic_converter_replacement"
+    ]
+  },
+  "exhaust_leak": {
+    "display": "Exhaust Leak Repair",
+    "chunks": [
+      "part_location:exhaust_manifold",
+      "procedure:exhaust_leak_diagnosis"
+    ]
+  },
+  "cv_axle": {
+    "display": "CV Axle Replacement",
+    "chunks": [
+      "torque_spec:axle_nut",
+      "torque_spec:wheel_lug_nuts",
+      "procedure:cv_axle_replacement"
+    ]
+  },
+  "tie_rod_end": {
+    "display": "Tie Rod End Replacement",
+    "chunks": [
+      "torque_spec:tie_rod_end",
+      "torque_spec:wheel_lug_nuts",
+      "procedure:tie_rod_replacement"
+    ],
+    "note": "Alignment required after replacement"
+  },
+  "ball_joint": {
+    "display": "Ball Joint Replacement",
+    "chunks": [
+      "torque_spec:ball_joint",
+      "torque_spec:wheel_lug_nuts",
+      "procedure:ball_joint_replacement"
+    ]
+  },
+  "sway_bar_link": {
+    "display": "Sway Bar Link Replacement",
+    "chunks": [
+      "torque_spec:sway_bar_link",
+      "torque_spec:wheel_lug_nuts",
+      "procedure:sway_bar_link_replacement"
+    ]
+  },
+  "shock_absorber": {
+    "display": "Shock Absorber Replacement",
+    "chunks": [
+      "torque_spec:shock_mount",
+      "torque_spec:wheel_lug_nuts",
+      "procedure:shock_replacement"
+    ]
+  },
+  "no_start_diagnosis": {
+    "display": "No Start Diagnosis",
+    "description": "Diagnose vehicle that won't start",
+    "chunks": [
+      "diagnostic_info:obd",
+      "part_location:starter",
+      "part_location:fuel_pump",
+      "battery_spec:main",
+      "known_issue:no_start"
+    ]
+  },
+  "overheating_diagnosis": {
+    "display": "Overheating Diagnosis",
+    "description": "Diagnose engine overheating issue",
+    "chunks": [
+      "fluid_capacity:coolant",
+      "part_location:thermostat",
+      "part_location:water_pump",
+      "part_location:radiator_fan",
+      "known_issue:overheating"
+    ]
+  },
+  "vibration_diagnosis": {
+    "display": "Vibration Diagnosis",
+    "description": "Diagnose vibration issue",
+    "chunks": [
+      "tire_spec:oem",
+      "brake_spec:front",
+      "brake_spec:rear",
+      "part_location:engine_mounts"
+    ]
+  },
+  "noise_diagnosis": {
+    "display": "Noise Diagnosis",
+    "description": "Diagnose unusual noise",
+    "chunks": [
+      "diagnostic_info:obd",
+      "known_issue:common"
+    ],
+    "note": "Chunks expanded based on noise type during diagnosis"
+  },
+  "electrical_drain_diagnosis": {
+    "display": "Parasitic Draw Diagnosis",
+    "description": "Diagnose battery drain issue",
+    "chunks": [
+      "battery_spec:main",
+      "diagnostic_info:parasitic_draw",
+      "part_location:fuse_box_engine",
+      "part_location:fuse_box_interior"
+    ]
+  },
+  "head_gasket": {
+    "display": "Head Gasket Replacement",
+    "chunks": [
+      "torque_spec:head_bolts",
+      "torque_spec:intake_manifold",
+      "torque_spec:exhaust_manifold",
+      "procedure:head_gasket_replacement",
+      "labor_time:head_gasket"
+    ]
+  },
+  "intake_manifold_gasket": {
+    "display": "Intake Manifold Gasket",
+    "chunks": [
+      "torque_spec:intake_manifold",
+      "procedure:intake_manifold_gasket"
+    ]
+  },
+  "exhaust_manifold_gasket": {
+    "display": "Exhaust Manifold Gasket",
+    "chunks": [
+      "torque_spec:exhaust_manifold",
+      "procedure:exhaust_manifold_gasket"
+    ]
+  },
+  "mass_air_flow_sensor": {
+    "display": "MAF Sensor Replacement",
+    "chunks": [
+      "part_location:maf_sensor",
+      "procedure:maf_sensor_replacement",
+      "dtc:maf_codes"
+    ]
+  },
+  "throttle_body": {
+    "display": "Throttle Body Service/Replacement",
+    "chunks": [
+      "part_location:throttle_body",
+      "procedure:throttle_body_cleaning",
+      "reset_procedure:throttle_body_relearn"
+    ]
+  },
+  "crankshaft_position_sensor": {
+    "display": "Crankshaft Position Sensor",
+    "chunks": [
+      "part_location:crankshaft_sensor",
+      "procedure:crankshaft_sensor_replacement",
+      "dtc:crank_sensor_codes"
+    ]
+  },
+  "camshaft_position_sensor": {
+    "display": "Camshaft Position Sensor",
+    "chunks": [
+      "part_location:camshaft_sensor",
+      "procedure:camshaft_sensor_replacement",
+      "dtc:cam_sensor_codes"
+    ]
+  }
+}

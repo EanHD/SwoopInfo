@@ -6,12 +6,20 @@ from config import settings
 class OpenRouterClient:
     BASE_URL = "https://openrouter.ai/api/v1"
 
+    # ONLY Grok and Gemini models - per user request
     MODELS = {
-        "ingestion": "x-ai/grok-4.1-fast",  # Free, fast, good for search result processing
-        "orchestrator": "google/gemini-2.5-flash-lite",  # Fast, multimodal, cheap (User requested test)
+        "ingestion": "x-ai/grok-4.1-fast",  # Grok - fast, good for search result processing
+        "orchestrator": "google/gemini-2.5-flash-lite",  # Gemini - fast, multimodal, cheap
+        "fast": "x-ai/grok-4.1-fast",  # Grok - fastest option
+        "structured": "google/gemini-2.5-flash-lite",  # Gemini - good for structured data extraction
     }
 
-    COSTS = {"ingestion": 0.0, "orchestrator": 0.00005}  # Free tier  # Very cheap
+    COSTS = {
+        "ingestion": 0.00010,  # Grok pricing
+        "orchestrator": 0.00005,  # Gemini pricing
+        "fast": 0.00010,  # Grok pricing
+        "structured": 0.00005,  # Gemini pricing
+    }
 
     def __init__(self):
         self.api_key = settings.openrouter_api_key

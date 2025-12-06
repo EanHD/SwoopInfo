@@ -4,6 +4,10 @@ import os
 import sys
 import logging
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Add the app directory to Python path (needed for Vercel serverless)
 app_dir = Path(__file__).parent
@@ -83,6 +87,20 @@ try:
     routers_loaded.append("chat")
 except Exception as e:
     logger.warning(f"Failed to load chat router: {e}")
+
+try:
+    from api.parts_pricing import router as parts_pricing_router
+    app.include_router(parts_pricing_router, tags=["Parts Pricing"])
+    routers_loaded.append("parts_pricing")
+except Exception as e:
+    logger.warning(f"Failed to load parts_pricing router: {e}")
+
+try:
+    from api.labor_times import router as labor_times_router
+    app.include_router(labor_times_router, tags=["Labor Times"])
+    routers_loaded.append("labor_times")
+except Exception as e:
+    logger.warning(f"Failed to load labor_times router: {e}")
 
 logger.info(f"Routers loaded: {routers_loaded}")
 

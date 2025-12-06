@@ -86,7 +86,7 @@ class AdvancedGenerator:
             "success": True,
             "data": chunk_data,
             "sources": sources,
-            "verification_status": "pending_verification",
+            "verification_status": "pending_review",
             "source_confidence": confidence,
             "title": f"Diagnostic Flow - {concern}",
         }

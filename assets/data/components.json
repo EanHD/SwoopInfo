@@ -1,0 +1,162 @@
+{
+  "_version": "2.0",
+  "_description": "Component registry. These are the ONLY valid component values for content_ids.",
+
+  "fluids": {
+    "engine_oil": { "display": "Engine Oil", "fluid_type": "engine_oil" },
+    "transmission": { "display": "Transmission Fluid", "fluid_type": "transmission" },
+    "coolant": { "display": "Engine Coolant", "fluid_type": "coolant" },
+    "brake": { "display": "Brake Fluid", "fluid_type": "brake" },
+    "power_steering": { "display": "Power Steering Fluid", "fluid_type": "power_steering" },
+    "differential": { "display": "Differential Fluid", "fluid_type": "differential" },
+    "transfer_case": { "display": "Transfer Case Fluid", "fluid_type": "transfer_case" }
+  },
+
+  "torque_components": {
+    "drain_plug": { "display": "Oil Drain Plug" },
+    "oil_filter": { "display": "Oil Filter" },
+    "oil_filter_housing": { "display": "Oil Filter Housing Cap" },
+    "wheel_lug_nuts": { "display": "Wheel Lug Nuts" },
+    "spark_plugs": { "display": "Spark Plugs" },
+    "ignition_coils": { "display": "Ignition Coil Bolts" },
+    "valve_cover": { "display": "Valve Cover Bolts" },
+    "intake_manifold": { "display": "Intake Manifold Bolts" },
+    "exhaust_manifold": { "display": "Exhaust Manifold Bolts" },
+    "timing_cover": { "display": "Timing Cover Bolts" },
+    "water_pump": { "display": "Water Pump Bolts" },
+    "thermostat_housing": { "display": "Thermostat Housing" },
+    "front_caliper_bracket": { "display": "Front Caliper Bracket" },
+    "front_caliper_slide": { "display": "Front Caliper Slide Pins" },
+    "rear_caliper_bracket": { "display": "Rear Caliper Bracket" },
+    "rear_caliper_slide": { "display": "Rear Caliper Slide Pins" },
+    "brake_rotor_set_screw": { "display": "Brake Rotor Set Screw" },
+    "axle_nut": { "display": "Axle/Spindle Nut" },
+    "control_arm": { "display": "Control Arm Bolts" },
+    "ball_joint": { "display": "Ball Joint Pinch Bolt" },
+    "tie_rod_end": { "display": "Tie Rod End Nut" },
+    "sway_bar_link": { "display": "Sway Bar Link" },
+    "strut_mount": { "display": "Strut Mount Nuts" },
+    "strut_pinch_bolt": { "display": "Strut Pinch Bolt" },
+    "alternator": { "display": "Alternator Bolts" },
+    "starter": { "display": "Starter Bolts" },
+    "battery_terminal": { "display": "Battery Terminal" },
+    "transmission_pan": { "display": "Transmission Pan Bolts" },
+    "transmission_drain": { "display": "Transmission Drain Plug" }
+  },
+
+  "procedures": {
+    "oil_change": { "display": "Oil Change" },
+    "transmission_fluid_change": { "display": "Transmission Fluid Change" },
+    "coolant_flush": { "display": "Coolant Flush" },
+    "brake_fluid_flush": { "display": "Brake Fluid Flush" },
+    "front_brake_pads": { "display": "Front Brake Pad Replacement" },
+    "rear_brake_pads": { "display": "Rear Brake Pad Replacement" },
+    "front_rotors": { "display": "Front Rotor Replacement" },
+    "rear_rotors": { "display": "Rear Rotor Replacement" },
+    "spark_plug_replacement": { "display": "Spark Plug Replacement" },
+    "air_filter_replacement": { "display": "Air Filter Replacement" },
+    "cabin_filter_replacement": { "display": "Cabin Air Filter Replacement" },
+    "serpentine_belt": { "display": "Serpentine Belt Replacement" },
+    "battery_replacement": { "display": "Battery Replacement" },
+    "alternator_replacement": { "display": "Alternator Replacement" },
+    "starter_replacement": { "display": "Starter Replacement" },
+    "water_pump_replacement": { "display": "Water Pump Replacement" },
+    "thermostat_replacement": { "display": "Thermostat Replacement" },
+    "timing_chain_replacement": { "display": "Timing Chain Replacement" },
+    "timing_belt_replacement": { "display": "Timing Belt Replacement" },
+    "valve_cover_gasket": { "display": "Valve Cover Gasket Replacement" },
+    "intake_manifold_gasket": { "display": "Intake Manifold Gasket Replacement" },
+    "wheel_bearing_replacement": { "display": "Wheel Bearing Replacement" },
+    "control_arm_replacement": { "display": "Control Arm Replacement" },
+    "tie_rod_replacement": { "display": "Tie Rod End Replacement" },
+    "strut_replacement": { "display": "Strut/Shock Replacement" },
+    "sway_bar_link_replacement": { "display": "Sway Bar Link Replacement" }
+  },
+
+  "part_locations": {
+    "oil_filter": { "display": "Oil Filter" },
+    "oil_drain_plug": { "display": "Oil Drain Plug" },
+    "air_filter": { "display": "Engine Air Filter" },
+    "cabin_filter": { "display": "Cabin Air Filter" },
+    "battery": { "display": "Battery" },
+    "fuse_box_engine": { "display": "Engine Fuse Box" },
+    "fuse_box_interior": { "display": "Interior Fuse Box" },
+    "obd_port": { "display": "OBD-II Port" },
+    "maf_sensor": { "display": "MAF Sensor" },
+    "map_sensor": { "display": "MAP Sensor" },
+    "throttle_body": { "display": "Throttle Body" },
+    "crankshaft_position_sensor": { "display": "Crankshaft Position Sensor" },
+    "camshaft_position_sensor": { "display": "Camshaft Position Sensor" },
+    "oxygen_sensor_upstream": { "display": "Upstream O2 Sensor" },
+    "oxygen_sensor_downstream": { "display": "Downstream O2 Sensor" },
+    "coolant_temp_sensor": { "display": "Coolant Temperature Sensor" },
+    "thermostat": { "display": "Thermostat" },
+    "water_pump": { "display": "Water Pump" },
+    "serpentine_belt_tensioner": { "display": "Belt Tensioner" },
+    "alternator": { "display": "Alternator" },
+    "starter": { "display": "Starter Motor" },
+    "power_steering_reservoir": { "display": "Power Steering Reservoir" },
+    "brake_master_cylinder": { "display": "Brake Master Cylinder" },
+    "abs_module": { "display": "ABS Module" }
+  },
+
+  "wiring_circuits": {
+    "fuel_pump": { "display": "Fuel Pump Circuit" },
+    "ignition_coils": { "display": "Ignition Coil Circuit" },
+    "oxygen_sensors": { "display": "O2 Sensor Circuit" },
+    "maf_sensor": { "display": "MAF Sensor Circuit" },
+    "crankshaft_sensor": { "display": "Crankshaft Sensor Circuit" },
+    "camshaft_sensor": { "display": "Camshaft Sensor Circuit" },
+    "coolant_temp_sensor": { "display": "Coolant Temp Sensor Circuit" },
+    "starter": { "display": "Starter Circuit" },
+    "alternator": { "display": "Alternator/Charging Circuit" },
+    "headlights": { "display": "Headlight Circuit" },
+    "tail_lights": { "display": "Tail Light Circuit" },
+    "brake_lights": { "display": "Brake Light Circuit" },
+    "horn": { "display": "Horn Circuit" },
+    "fuel_injectors": { "display": "Fuel Injector Circuit" }
+  },
+
+  "reset_systems": {
+    "oil_life": { "display": "Oil Life Monitor Reset" },
+    "tire_pressure": { "display": "TPMS Reset" },
+    "maintenance_required": { "display": "Maintenance Required Light Reset" },
+    "brake_service": { "display": "Brake Service Reset" }
+  },
+
+  "brake_positions": {
+    "front": { "display": "Front Brakes" },
+    "rear": { "display": "Rear Brakes" }
+  },
+
+  "light_types": {
+    "headlight_low": { "display": "Low Beam Headlight" },
+    "headlight_high": { "display": "High Beam Headlight" },
+    "fog": { "display": "Fog Light" },
+    "turn_front": { "display": "Front Turn Signal" },
+    "turn_rear": { "display": "Rear Turn Signal" },
+    "brake": { "display": "Brake Light" },
+    "tail": { "display": "Tail Light" },
+    "reverse": { "display": "Reverse Light" },
+    "license_plate": { "display": "License Plate Light" },
+    "interior_dome": { "display": "Interior Dome Light" }
+  },
+
+  "filter_types": {
+    "engine_air": { "display": "Engine Air Filter" },
+    "cabin_air": { "display": "Cabin Air Filter" },
+    "fuel": { "display": "Fuel Filter" }
+  },
+
+  "service_types": {
+    "oil_change": { "display": "Oil Change", "default_miles": 5000 },
+    "tire_rotation": { "display": "Tire Rotation", "default_miles": 7500 },
+    "air_filter": { "display": "Air Filter", "default_miles": 30000 },
+    "cabin_filter": { "display": "Cabin Filter", "default_miles": 20000 },
+    "spark_plugs": { "display": "Spark Plugs", "default_miles": 60000 },
+    "transmission_fluid": { "display": "Transmission Fluid", "default_miles": 60000 },
+    "coolant_flush": { "display": "Coolant Flush", "default_miles": 60000 },
+    "brake_fluid": { "display": "Brake Fluid", "default_miles": 30000 },
+    "timing_belt": { "display": "Timing Belt", "default_miles": 90000 }
+  }
+}

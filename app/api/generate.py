@@ -177,6 +177,23 @@ async def generate_chunks(request: GenerateChunksRequest):
                 "tags": chunk.tags,
             }
 
+            # Map verification_status to valid DB values
+            # DB ONLY accepts: pending_verification, auto_verified, rejected
+            status_map = {
+                "unverified": "pending_verification",
+                "pending_review": "pending_verification",
+                "pending_verification": "pending_verification",
+                "verified": "auto_verified",
+                "auto_verified": "auto_verified",
+                "community_verified": "auto_verified",
+                "flagged": "pending_verification",  # Flagged items need review
+                "generated": "pending_verification",
+                "rejected": "rejected",
+            }
+            db_verification_status = status_map.get(
+                chunk.verification_status, "pending_verification"
+            )
+
             # PERF: Add to batch instead of individual save
             chunk_data = {
                 "vehicle_key": chunk.vehicle_key,
@@ -186,7 +203,7 @@ async def generate_chunks(request: GenerateChunksRequest):
                 "title": chunk.title,
                 "data": data,
                 "sources": sources,
-                "verification_status": chunk.verification_status,
+                "verification_status": db_verification_status,
                 "source_confidence": chunk.consensus_score or 0.0,
                 "content_text": chunk.content_text,
                 "qa_status": "pending",

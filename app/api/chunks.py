@@ -544,14 +544,16 @@ async def get_chunk(
 
         # Map ServiceChunk verification_status to database verification_status
         # ServiceChunk uses: unverified, pending_review, verified, auto_verified, community_verified, flagged
-        # Database uses: unverified, pending_verification, verified, auto_verified, rejected
+        # DB ONLY accepts: pending_verification, auto_verified, rejected
         verification_status_map = {
-            "unverified": "unverified",
+            "unverified": "pending_verification",
             "pending_review": "pending_verification",
-            "verified": "verified",
+            "pending_verification": "pending_verification",
+            "verified": "auto_verified",
             "auto_verified": "auto_verified",
-            "community_verified": "verified",  # Map to verified
-            "flagged": "pending_verification",  # Map flagged to pending_verification
+            "community_verified": "auto_verified",
+            "flagged": "pending_verification",
+            "rejected": "rejected",
         }
         db_verification_status = verification_status_map.get(
             service_chunk.verification_status, "pending_verification"
@@ -809,13 +811,16 @@ async def generate_on_demand(request: OnDemandRequest):
         print(f"✅ Generated real chunk (cost: ${cost:.4f})")
 
         # Map ServiceChunk verification_status to database verification_status
+        # DB ONLY accepts: pending_verification, auto_verified, rejected
         verification_status_map = {
-            "unverified": "unverified",
+            "unverified": "pending_verification",
             "pending_review": "pending_verification",
-            "verified": "verified",
+            "pending_verification": "pending_verification",
+            "verified": "auto_verified",
             "auto_verified": "auto_verified",
-            "community_verified": "verified",
+            "community_verified": "auto_verified",
             "flagged": "pending_verification",
+            "rejected": "rejected",
         }
         db_verification_status = verification_status_map.get(
             service_chunk.verification_status, "pending_verification"
@@ -962,14 +967,16 @@ async def generate_chunk_endpoint(
 
         # Map ServiceChunk verification_status to database verification_status
         # ServiceChunk uses: unverified, pending_review, verified, auto_verified, community_verified, flagged
-        # Database uses: unverified, pending_verification, verified, auto_verified, rejected
+        # DB ONLY accepts: pending_verification, auto_verified, rejected
         verification_status_map = {
-            "unverified": "unverified",
+            "unverified": "pending_verification",
             "pending_review": "pending_verification",
-            "verified": "verified",
+            "pending_verification": "pending_verification",
+            "verified": "auto_verified",
             "auto_verified": "auto_verified",
-            "community_verified": "verified",  # Map to verified
-            "flagged": "pending_verification",  # Map flagged to pending_verification
+            "community_verified": "auto_verified",
+            "flagged": "pending_verification",
+            "rejected": "rejected",
         }
         db_verification_status = verification_status_map.get(
             service_chunk.verification_status, "pending_verification"
@@ -1194,13 +1201,16 @@ async def generate_leaf_endpoint(request: LeafGenerationRequest):
             chunk = res["chunk"]
 
             # Map verification status
+            # DB ONLY accepts: pending_verification, auto_verified, rejected
             verification_status_map = {
-                "unverified": "unverified",
+                "unverified": "pending_verification",
                 "pending_review": "pending_verification",
-                "verified": "verified",
+                "pending_verification": "pending_verification",
+                "verified": "auto_verified",
                 "auto_verified": "auto_verified",
-                "community_verified": "verified",
+                "community_verified": "auto_verified",
                 "flagged": "pending_verification",
+                "rejected": "rejected",
             }
             db_verification_status = verification_status_map.get(
                 chunk.verification_status, "pending_verification"

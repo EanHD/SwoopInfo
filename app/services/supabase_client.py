@@ -19,7 +19,7 @@ class ChunkRecord:
         self.data = data.get("data", {})
         self.sources = data.get("sources", [])
         self.verification_status = data.get(
-            "verification_status", "pending_verification"
+            "verification_status", "pending_review"
         )
         self.source_confidence = data.get("source_confidence", 0.0)
         self.qa_status = data.get("qa_status", "pending")
@@ -401,13 +401,14 @@ class SupabaseService:
 
             # STATUS MAPPING: Map internal generator statuses to valid DB enums
             # Internal statuses: unverified, pending_review, verified, auto_verified, community_verified, flagged, generated
-            # DB allowed: unverified, pending_verification, verified, auto_verified, rejected
+            # DB ONLY accepts: pending_verification, auto_verified, rejected
             status_map = {
-                "unverified": "unverified",
+                "unverified": "pending_verification",
                 "pending_review": "pending_verification",
-                "verified": "verified",
+                "pending_verification": "pending_verification",
+                "verified": "auto_verified",
                 "auto_verified": "auto_verified",
-                "community_verified": "verified",
+                "community_verified": "auto_verified",
                 "flagged": "pending_verification",
                 "generated": "pending_verification",
                 "rejected": "rejected",
@@ -686,6 +687,26 @@ class SupabaseService:
         except Exception as e:
             print(f"❌ Supabase update_chunk_qa_status error: {e}")
             return False
+
+    async def get_chunk_by_content_id(
+        self, vehicle_key: str, content_id: str
+    ) -> Optional[ChunkRecord]:
+        """Get a chunk by vehicle_key and content_id (deterministic lookup)."""
+        try:
+            result = (
+                self.client.table("chunks")
+                .select("*")
+                .eq("vehicle_key", vehicle_key)
+                .eq("content_id", content_id)
+                .limit(1)
+                .execute()
+            )
+            if result.data:
+                return ChunkRecord(result.data[0])
+            return None
+        except Exception as e:
+            print(f"❌ Supabase get_chunk_by_content_id error: {e}")
+            return None
 
     async def get_chunk_by_id(self, chunk_id: str) -> Optional[ChunkRecord]:
         """Get a single chunk by ID (helper for update logic)"""

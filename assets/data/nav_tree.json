@@ -1,8 +1,525 @@
 {
-  "name": "Swoop Nav Tree \u2013 Mechanic-First v2.0",
-  "description": "Final version. Every leaf is a real job. Ready for production.",
-  "version": "2.0",
+  "name": "Swoop Nav Tree – Mechanic-First v2.1",
+  "description": "Added Warning Lights & Symptoms. Every leaf is a real job. Ready for production.",
+  "version": "2.1",
   "roots": {
+    "Warning Lights & Indicators": {
+      "icon": "warning",
+      "description": "Dashboard warning lights - most common customer concern",
+      "sub": {
+        "Check Engine Light (MIL)": {
+          "tags": [
+            "diagnostic",
+            "dtc",
+            "engine"
+          ],
+          "chunks": [
+            "diagnostic_info:obd",
+            "dtc:common",
+            "known_issue:common"
+          ]
+        },
+        "ABS Warning": {
+          "tags": [
+            "diagnostic",
+            "brake",
+            "abs"
+          ],
+          "chunks": [
+            "diagnostic_info:abs",
+            "dtc:abs",
+            "part_location:abs_module"
+          ]
+        },
+        "Airbag (SRS) Warning": {
+          "tags": [
+            "diagnostic",
+            "safety",
+            "srs"
+          ],
+          "chunks": [
+            "diagnostic_info:srs",
+            "dtc:srs"
+          ],
+          "note": "Safety system - recommend dealer for repairs"
+        },
+        "TPMS Warning": {
+          "tags": [
+            "diagnostic",
+            "tire",
+            "tpms"
+          ],
+          "chunks": [
+            "tire_spec:oem",
+            "reset_procedure:tire_pressure"
+          ]
+        },
+        "Oil Pressure Warning": {
+          "tags": [
+            "engine",
+            "critical",
+            "oil"
+          ],
+          "chunks": [
+            "fluid_capacity:engine_oil",
+            "part_location:oil_pressure_sensor"
+          ],
+          "priority": "critical"
+        },
+        "Temperature Warning": {
+          "tags": [
+            "cooling",
+            "critical",
+            "overheat"
+          ],
+          "chunks": [
+            "fluid_capacity:coolant",
+            "part_location:thermostat"
+          ],
+          "priority": "critical"
+        },
+        "Battery/Charging Warning": {
+          "tags": [
+            "electrical",
+            "charging",
+            "alternator"
+          ],
+          "chunks": [
+            "battery_spec:main",
+            "part_location:alternator"
+          ]
+        },
+        "Brake Warning": {
+          "tags": [
+            "brake",
+            "safety",
+            "parking_brake"
+          ],
+          "chunks": [
+            "fluid_capacity:brake",
+            "brake_spec:front",
+            "brake_spec:rear"
+          ]
+        },
+        "Transmission Temperature": {
+          "tags": [
+            "transmission",
+            "overheat"
+          ],
+          "chunks": [
+            "fluid_capacity:transmission"
+          ]
+        },
+        "Traction Control Off": {
+          "tags": [
+            "diagnostic",
+            "traction",
+            "stability"
+          ],
+          "chunks": [
+            "diagnostic_info:traction_control"
+          ]
+        },
+        "Power Steering Warning": {
+          "tags": [
+            "steering",
+            "eps"
+          ],
+          "chunks": [
+            "diagnostic_info:eps",
+            "fluid_capacity:power_steering"
+          ]
+        },
+        "Low Fuel Warning": {
+          "tags": [
+            "fuel",
+            "info_only"
+          ],
+          "chunks": []
+        },
+        "Maintenance Required": {
+          "tags": [
+            "maintenance",
+            "oil_life"
+          ],
+          "chunks": [
+            "reset_procedure:oil_life",
+            "reset_procedure:maintenance_required"
+          ]
+        }
+      }
+    },
+    "Symptoms & Diagnostics": {
+      "icon": "stethoscope",
+      "description": "Customer-reported symptoms mapped to diagnostic flows",
+      "sub": {
+        "Noises": {
+          "sub": {
+            "Engine Noises": {
+              "sub": {
+                "Knocking/Pinging": {
+                  "tags": [
+                    "engine",
+                    "noise",
+                    "detonation"
+                  ]
+                },
+                "Ticking/Tapping": {
+                  "tags": [
+                    "engine",
+                    "noise",
+                    "valvetrain"
+                  ]
+                },
+                "Squealing on Startup": {
+                  "tags": [
+                    "engine",
+                    "noise",
+                    "belt"
+                  ]
+                },
+                "Grinding": {
+                  "tags": [
+                    "engine",
+                    "noise",
+                    "critical"
+                  ]
+                }
+              }
+            },
+            "Brake Noises": {
+              "sub": {
+                "Squealing When Braking": {
+                  "tags": [
+                    "brake",
+                    "noise",
+                    "pads"
+                  ]
+                },
+                "Grinding When Braking": {
+                  "tags": [
+                    "brake",
+                    "noise",
+                    "rotors",
+                    "critical"
+                  ]
+                },
+                "Clicking/Popping": {
+                  "tags": [
+                    "brake",
+                    "noise",
+                    "cv_axle"
+                  ]
+                }
+              }
+            },
+            "Steering Noises": {
+              "sub": {
+                "Whining When Turning": {
+                  "tags": [
+                    "steering",
+                    "noise",
+                    "power_steering"
+                  ]
+                },
+                "Clunking Over Bumps": {
+                  "tags": [
+                    "suspension",
+                    "noise",
+                    "strut"
+                  ]
+                },
+                "Creaking When Turning": {
+                  "tags": [
+                    "steering",
+                    "noise",
+                    "ball_joint"
+                  ]
+                }
+              }
+            },
+            "Suspension Noises": {
+              "sub": {
+                "Clunking Over Bumps": {
+                  "tags": [
+                    "suspension",
+                    "noise",
+                    "strut",
+                    "sway_bar"
+                  ]
+                },
+                "Squeaking Over Bumps": {
+                  "tags": [
+                    "suspension",
+                    "noise",
+                    "bushing"
+                  ]
+                },
+                "Rattling": {
+                  "tags": [
+                    "suspension",
+                    "noise",
+                    "exhaust",
+                    "heat_shield"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Performance Issues": {
+          "sub": {
+            "No Start": {
+              "sub": {
+                "Cranks But Won't Start": {
+                  "tags": [
+                    "engine",
+                    "no_start",
+                    "fuel",
+                    "spark"
+                  ]
+                },
+                "No Crank, No Start": {
+                  "tags": [
+                    "electrical",
+                    "no_start",
+                    "starter",
+                    "battery"
+                  ]
+                },
+                "Clicks But Won't Start": {
+                  "tags": [
+                    "electrical",
+                    "no_start",
+                    "starter",
+                    "battery"
+                  ]
+                }
+              }
+            },
+            "Running Problems": {
+              "sub": {
+                "Rough Idle": {
+                  "tags": [
+                    "engine",
+                    "idle",
+                    "vacuum",
+                    "sensor"
+                  ]
+                },
+                "Stalling": {
+                  "tags": [
+                    "engine",
+                    "stall",
+                    "fuel",
+                    "sensor"
+                  ]
+                },
+                "Hesitation on Acceleration": {
+                  "tags": [
+                    "engine",
+                    "hesitation",
+                    "fuel",
+                    "ignition"
+                  ]
+                },
+                "Loss of Power": {
+                  "tags": [
+                    "engine",
+                    "power_loss",
+                    "turbo",
+                    "exhaust"
+                  ]
+                },
+                "Surging": {
+                  "tags": [
+                    "engine",
+                    "surge",
+                    "vacuum",
+                    "sensor"
+                  ]
+                }
+              }
+            },
+            "Overheating": {
+              "sub": {
+                "Gauge Rises Quickly": {
+                  "tags": [
+                    "cooling",
+                    "overheat",
+                    "thermostat"
+                  ]
+                },
+                "Overheats in Traffic": {
+                  "tags": [
+                    "cooling",
+                    "overheat",
+                    "fan"
+                  ]
+                },
+                "Overheats at Highway Speed": {
+                  "tags": [
+                    "cooling",
+                    "overheat",
+                    "radiator"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Leaks": {
+          "sub": {
+            "Engine Oil Leaks": {
+              "sub": {
+                "Valve Cover Gasket": {
+                  "tags": [
+                    "engine",
+                    "leak",
+                    "gasket"
+                  ]
+                },
+                "Oil Pan Gasket": {
+                  "tags": [
+                    "engine",
+                    "leak",
+                    "gasket"
+                  ]
+                },
+                "Rear Main Seal": {
+                  "tags": [
+                    "engine",
+                    "leak",
+                    "seal"
+                  ]
+                },
+                "Front Main Seal": {
+                  "tags": [
+                    "engine",
+                    "leak",
+                    "seal"
+                  ]
+                }
+              }
+            },
+            "Coolant Leaks": {
+              "sub": {
+                "Radiator Leak": {
+                  "tags": [
+                    "cooling",
+                    "leak",
+                    "radiator"
+                  ]
+                },
+                "Hose Leak": {
+                  "tags": [
+                    "cooling",
+                    "leak",
+                    "hose"
+                  ]
+                },
+                "Water Pump Leak": {
+                  "tags": [
+                    "cooling",
+                    "leak",
+                    "water_pump"
+                  ]
+                },
+                "Heater Core Leak": {
+                  "tags": [
+                    "cooling",
+                    "leak",
+                    "hvac"
+                  ]
+                }
+              }
+            },
+            "Transmission Leaks": {
+              "sub": {
+                "Pan Gasket": {
+                  "tags": [
+                    "transmission",
+                    "leak",
+                    "gasket"
+                  ]
+                },
+                "Axle Seal": {
+                  "tags": [
+                    "transmission",
+                    "leak",
+                    "seal"
+                  ]
+                },
+                "Cooler Lines": {
+                  "tags": [
+                    "transmission",
+                    "leak",
+                    "line"
+                  ]
+                }
+              }
+            },
+            "Other Leaks": {
+              "sub": {
+                "Power Steering Leak": {
+                  "tags": [
+                    "steering",
+                    "leak",
+                    "fluid"
+                  ]
+                },
+                "Brake Fluid Leak": {
+                  "tags": [
+                    "brake",
+                    "leak",
+                    "critical"
+                  ]
+                },
+                "Fuel Leak": {
+                  "tags": [
+                    "fuel",
+                    "leak",
+                    "critical"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Vibrations": {
+          "sub": {
+            "Vibration at Idle": {
+              "tags": [
+                "engine",
+                "vibration",
+                "mount"
+              ]
+            },
+            "Vibration While Driving": {
+              "tags": [
+                "tire",
+                "vibration",
+                "balance"
+              ]
+            },
+            "Vibration When Braking": {
+              "tags": [
+                "brake",
+                "vibration",
+                "rotor"
+              ]
+            },
+            "Steering Wheel Shake": {
+              "tags": [
+                "suspension",
+                "vibration",
+                "alignment"
+              ]
+            }
+          }
+        }
+      }
+    },
     "Quick Reference": {
       "icon": "book",
       "sub": {
@@ -738,7 +1255,7 @@
             ]
           },
           "Dynamic Modules (auto-populated)": {
-            "note": "Transfer Case, HV Battery ECU, etc. \u2013 generated from scan"
+            "note": "Transfer Case, HV Battery ECU, etc. – generated from scan"
           }
         }
       }
@@ -823,7 +1340,7 @@
       "sub": {
         "Cameras": [
           "Forward",
-          "360\u00b0",
+          "360°",
           "Rear"
         ],
         "Radar & Ultrasonic": {
