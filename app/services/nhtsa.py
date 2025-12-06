@@ -18,6 +18,44 @@ class NHTSAService:
         )
         self.timeout = 15.0
 
+    async def decode_vin(self, vin: str) -> Dict[str, Any]:
+        """Decode VIN using NHTSA vPIC API"""
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            try:
+                url = f"{self.base_url}/vehicles/decodevin/{vin}?format=json"
+                response = await client.get(url)
+                response.raise_for_status()
+                data = response.json()
+
+                results = data.get("Results", [])
+                if not results:
+                    return {"success": False, "error": "No results found"}
+
+                # Parse results into a cleaner format
+                vehicle_data = {}
+                for item in results:
+                    if item.get("Value") and item.get("Variable"):
+                        vehicle_data[item["Variable"]] = item["Value"]
+
+                # Extract key fields
+                return {
+                    "success": True,
+                    "data": {
+                        "year": int(vehicle_data.get("Model Year", 0)) if vehicle_data.get("Model Year") else None,
+                        "make": vehicle_data.get("Make"),
+                        "model": vehicle_data.get("Model"),
+                        "trim": vehicle_data.get("Trim"),
+                        "body_style": vehicle_data.get("Body Class"),
+                        "drive_type": vehicle_data.get("Drive Type"),
+                        "engine_cylinders": vehicle_data.get("Engine Number of Cylinders"),
+                        "engine_displacement": vehicle_data.get("Displacement (L)"),
+                        "fuel_type": vehicle_data.get("Fuel Type - Primary"),
+                    },
+                    "source": "nhtsa_vpic"
+                }
+            except Exception as e:
+                return {"success": False, "error": str(e)}
+
     async def get_vehicle_specs(self, vehicle: Vehicle) -> Dict[str, Any]:
         """Get vehicle specifications from NHTSA vPIC"""
         async with httpx.AsyncClient(timeout=self.timeout) as client:

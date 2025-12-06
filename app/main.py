@@ -102,6 +102,13 @@ try:
 except Exception as e:
     logger.warning(f"Failed to load labor_times router: {e}")
 
+try:
+    from api.vehicles import router as vehicles_router
+    app.include_router(vehicles_router, prefix="/api/vehicles", tags=["Vehicles"])
+    routers_loaded.append("vehicles")
+except Exception as e:
+    logger.warning(f"Failed to load vehicles router: {e}")
+
 logger.info(f"Routers loaded: {routers_loaded}")
 
 
