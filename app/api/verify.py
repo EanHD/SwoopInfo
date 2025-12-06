@@ -1,9 +1,49 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Body
 from models.chunk import ServiceChunk
 from services.supabase_client import supabase_service
-from typing import List
+from services.vision import vision_service
+from typing import List, Dict, Any
 
 router = APIRouter()
+
+
+@router.post("/vin-image")
+async def verify_vin_image(data: Dict[str, Any] = Body(...)):
+    """
+    Verify a VIN from an image.
+    Expects JSON: { "image": "base64_string", "expected_vin": "optional_vin_to_compare" }
+    """
+    image_data = data.get("image")
+    expected_vin = data.get("expected_vin")
+    
+    if not image_data:
+        raise HTTPException(status_code=400, detail="Image data required")
+
+    result = await vision_service.extract_vin_from_image(image_data)
+    
+    if not result["success"]:
+        return {"verified": False, "extracted_vin": None, "message": result["error"]}
+        
+    extracted_vin = result["vin"]
+    
+    response = {
+        "verified": True,
+        "extracted_vin": extracted_vin,
+        "match": False
+    }
+    
+    if expected_vin:
+        # Normalize for comparison
+        norm_extracted = extracted_vin.upper().replace("I", "1").replace("O", "0").replace("Q", "0")
+        norm_expected = expected_vin.upper().replace("I", "1").replace("O", "0").replace("Q", "0")
+        
+        # Allow for minor OCR errors (Levenshtein distance could be better, but exact/partial match for now)
+        if norm_extracted == norm_expected:
+            response["match"] = True
+        elif norm_expected in norm_extracted: # Extracted might have extra chars
+            response["match"] = True
+            
+    return response
 
 
 @router.get("/pending-review", response_model=List[ServiceChunk])
